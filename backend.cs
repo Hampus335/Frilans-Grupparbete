@@ -6,7 +6,7 @@ namespace FreelancerProject
     {   
         public static void Main()
         {
-            SaveCV()
+            SaveCV();
         }
 
         private static SaveCV()
