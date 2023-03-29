@@ -22,33 +22,44 @@
         <input type="email" name="email" id="email" placeholder="Din emailaddress...">
 
         <label for="birthday"><p>Födelsedag</p></label>
-        <input type="date" name="birthday" id="birthdayftime" placeholder="Din födelsedag...">
+        <input type="date" name="age" id="birthdayftime" placeholder="Din födelsedag...">
 
         <label for="education"><p>Utbildning.</p></label>
         <input type="text" name="education" id="education" placeholder="Din utbildning...">
 
-        <label for="description"><p>Nationalitet</p></label>
+        <label for="nationality"><p>Nationalitet</p></label>
         <input type="text" name="nationality" id="nationality" placeholder="Din nationalitet...">
 
-        <label for="description"><p>Land</p></label>
+        <label for="country"><p>Land</p></label>
         <input type="text" name="country" id="nationality" placeholder="Ditt land...">
 
-        <label for="description"><p>Lägg in en bild på ditt Körkort.</p></label>
+        <label for="driversLicense"><p>Lägg in en bild på ditt Körkort.</p></label>
         <input type="file" name="driversLicense"> 
-        <label for="description"><p>Körkort.</p></label>
-        <input type="text" name="driversLicense" id="description" placeholder="En självbeskskrivning...">
 
-        <label for="description"><p>Kunskaper.</p></label>
-        <input type="text" name="abilities" id="description" placeholder="Dina Kunskaper...">
+
+        <form name="abilities" id="form1" action="/action_page.php">
+            Subjects: <select name="subject" id="subject">
+                <option value="" selected="selected">Välj Kompetens</option>
+              </select>
+              <br><br>
+            Topics: <select name="topic" id="topic">
+                <option value="" selected="selected">Välj expertis</option>
+              </select>
+              <br><br>
+            Chapters: <select name="chapter" id="chapter">
+                <option value="" selected="selected"></option>
+              </select>
+              <br><br>
+            </form>
 
         <label for="description"><p>Språk.</p></label>
         <input type="text" name="language" id="language" placeholder="Språkkunskaper...">
 
         <label for="description"><p>Beskrivning av dig själv.</p></label>
-        <input type="text" name="address" id="description" placeholder="En självbeskskrivning...">
+        <input type="text" name="description" id="description" placeholder="En självbeskskrivning...">
 
         <label for="description"><p>address.</p></label>
-        <input type="text" name="address" id="description" placeholder="En självbeskskrivning...">
+        <input type="text" name="address" id="description" placeholder="Din address...">
 
         <input type="submit" name="Skicka" onclick="SaveCV()">
         
