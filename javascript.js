@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "Front-end": {
       "HTML": ["Links", "Images", "Tables", "Lists"],
       "CSS": ["Borders", "Margins", "Backgrounds", "Float"],
-      "JavaScript": ["Variables", "Operators", "Functions", "Conditions"]    
+      "JavaScript": ["Bootstrap", "Operators", "Functions", "Conditions"]    
     },
     "Back-end": {
       "PHP": ["Variables", "Strings", "Arrays"],
