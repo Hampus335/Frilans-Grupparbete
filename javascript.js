@@ -81,3 +81,23 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
+
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+var nameInput = document.getElementById('fname');
+console.log(namn)
+
+form.addEventListener('submit', function (e) {
+
+    //prevent the normal submission of the form
+    e.preventDefault();
+
+    console.log(nameInput.value);    
+});
