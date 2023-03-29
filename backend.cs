@@ -1,5 +1,6 @@
 using System;
 
+mongodb+srv://Hampus:Luftballong22@cluster0.pzxpnw3.mongodb.net/test
 namespace FreelancerProject
 {
     public static class UserData
