@@ -16,7 +16,6 @@ namespace FreelancerProject
         const string surName = Request.Form["surName"];
         const int age = int.Parse(Request.Form["age"]);
         const string email = Request.Form["email"];
-        const string address = Request.Form["address"];
         const string phoneNumber = Request.Form["phoneNumber"];
         const string country = Request.Form["country"];
         const string language = Request.Form["language"];
