@@ -1,30 +1,27 @@
 using System;
 namespace FreelancerProject
 {
-    public static class UserData
-    {   
-        public static void Main()
-        {
-            SaveCV();
-        }
+    public class CV
+    {
+        public string firstName = Request.Form["firstName"];
+        public string surName = Request.Form["surName"];
+        public int age = int.Parse(Request.Form["age"]);
+        public string email = Request.Form["email"];
+        public string phoneNumber = Request.Form["phoneNumber"];
+        public string country = Request.Form["country"];
+        public string language = Request.Form["language"];
+        public string nationality = Request.Form["nationality"];
+        public string driversLicense = Request.Form["driversLicense"];
+        public string selfDescription = Request.Form["selfDescription"];
+        public string abilities = Request.Form["abilities"];
+        public string education = Request.Form["education"];
+    }
 
-        private static SaveCV()
+    private static class Program
+    {   
+        private static void Main()
         {
-        mongodb://localhost:27017/
-        
-        const string firstName = Request.Form["firstName"];
-        const string surName = Request.Form["surName"];
-        const int age = int.Parse(Request.Form["age"]);
-        const string email = Request.Form["email"];
-        const string address = Request.Form["address"];
-        const string phoneNumber = Request.Form["phoneNumber"];
-        const string country = Request.Form["country"];
-        const string language = Request.Form["language"];
-        const string nationality = Request.Form["nationality"];
-        const string driversLicense = Request.Form["driversLicense"];
-        const string selfDescription = Request.Form["selfDescription"];
-        const string abilities = Request.Form["abilities"];
-        const string education = Request.Form["education"];
+            
         }
     }
 }
