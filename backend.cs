@@ -1,4 +1,7 @@
 using System;
+using MongoDB.Driver;
+
+
 namespace FreelancerProject
 {
     public class CV
@@ -21,7 +24,8 @@ namespace FreelancerProject
     {   
         private static void Main()
         {
-            
+            var client = new MongoClient("mongodb://localhost:27017");
+            var database = client.GetDatabase("mydatabase");
         }
     }
 }
