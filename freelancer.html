@@ -9,10 +9,10 @@
 </head>
 <body>
     <div>
-     <form>
+     <form id="myForm">
 
         <label for="firstname"> Förnamn</label>
-        <input type="text" id="fname"  name="firstName" placeholder="Ditt förnamn...">
+        <input type="text" id="name"  name="firstName" placeholder="Ditt förnamn...">
 
         <label for="lastname"><p>Efternamn</p></label>
         <input type="text" id="lastname" name="surName" placeholder="Ditt efternamn...">
@@ -35,7 +35,7 @@
         <label for="country"><p>Land</p></label>
         <input type="text" name="country" id="nationality" placeholder="Land...">
 
-f        <label for="driversLicense"><p>Lägg in en bild på ditt Körkort.</p></label>
+        <label for="driversLicense"><p>Lägg in en bild på ditt Körkort.</p></label>
         <input type="file" name="driversLicense"> 
 
 
@@ -63,10 +63,13 @@ f        <label for="driversLicense"><p>Lägg in en bild på ditt Körkort.</p><
         <label for="description"><p>address.</p></label>
         <input type="text" name="address" id="description" placeholder="Din address...">
 
-        <button type="submit" name="Skicka">
+        <input type="button" value="submit" onclick="submitForm()">
         
+           
+       
      </form>
     </div>
+    <script src="javascript.js"></script>
 </body>
 </html>
 

@@ -1,3 +1,5 @@
+
+
 document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".search-input").forEach((inputField) => {
       const tableRows = inputField
@@ -28,6 +30,15 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
+  
+function submitForm() {
+ var name = document.getElementById("name")
+ 
+ console.log("name" + name)
+ console.log("name")
+}
+
+submitForm();
   /*Freelancer kompetens */
   var subjectObject = {
     "Front-end": {
@@ -90,14 +101,3 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
-
-var nameInput = document.getElementById('fname');
-console.log(namn)
-
-form.addEventListener('submit', function (e) {
-
-    //prevent the normal submission of the form
-    e.preventDefault();
-
-    console.log(nameInput.value);    
-});
