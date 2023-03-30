@@ -29,15 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-
-  
-function submitForm() {
- var name = document.getElementById("name")
- 
- console.log("name" + name)
- console.log("name")
-}
-
 submitForm();
   /*Freelancer kompetens */
   var subjectObject = {
@@ -101,3 +92,10 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
+
+function submitForm() {
+    const form = document.getElementById("myForm");
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+    console.log(data);
+  }
