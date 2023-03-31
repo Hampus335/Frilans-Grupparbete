@@ -39,8 +39,8 @@ namespace FreelancerProject
 
         private static async void RetrieveData()
         {
-            var client = new MongoClient("mongodb://localhost:27017");
-            var database = client.GetDatabase("mydatabase");
+            //var client = new MongoClient("mongodb://localhost:27017");
+            //var database = client.GetDatabase("mydatabase");
 
             var collection = database.GetCollection<Frilansare>("CVn");
             var CVn = await collection.Find(x => true).ToListAsync();
