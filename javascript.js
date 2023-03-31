@@ -126,7 +126,7 @@ function submitForm() {
   teknologierEl.addEventListener("change", laggTillTeknologi);
   
 
-
+/*
 function submitForm() {
     const form = document.getElementById("myForm");
     const formData = new FormData(form);
