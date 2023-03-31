@@ -45,5 +45,5 @@ namespace FreelancerProject
             var collection = database.GetCollection<Frilansare>("CVn");
             var CVn = await collection.Find(x => true).ToListAsync();
         }
-    }
+    }   
 }
