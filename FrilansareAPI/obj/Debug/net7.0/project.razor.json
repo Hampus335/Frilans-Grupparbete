@@ -1,6 +1,6 @@
 {
-  "SerializedFilePath": "c:\\Users\\hampus.grunewald\\Documents\\Frilansare\\obj\\Debug\\net7.0\\project.razor.json",
-  "FilePath": "c:\\Users\\hampus.grunewald\\Documents\\Frilansare\\Frilansare.csproj",
+  "SerializedFilePath": "c:\\Users\\hampus.grunewald\\Documents\\Frilansare\\FrilansareAPI\\obj\\Debug\\net7.0\\project.razor.json",
+  "FilePath": "c:\\Users\\hampus.grunewald\\Documents\\Frilansare\\FrilansareAPI\\Frilansare grupparbete.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "7.0",
@@ -18643,42 +18643,6 @@
     "CSharpLanguageVersion": 1100
   },
   "RootNamespace": "Frilansare",
-  "Documents": [
-    {
-      "FilePath": "c:\\Users\\hampus.grunewald\\Documents\\Frilansare\\Pages\\Shared\\_Layout.cshtml",
-      "TargetPath": "Pages\\Shared\\_Layout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\hampus.grunewald\\Documents\\Frilansare\\Pages\\Index.cshtml",
-      "TargetPath": "Pages\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\hampus.grunewald\\Documents\\Frilansare\\Pages\\Error.cshtml",
-      "TargetPath": "Pages\\Error.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\hampus.grunewald\\Documents\\Frilansare\\Pages\\Shared\\_ValidationScriptsPartial.cshtml",
-      "TargetPath": "Pages\\Shared\\_ValidationScriptsPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\hampus.grunewald\\Documents\\Frilansare\\Pages\\Privacy.cshtml",
-      "TargetPath": "Pages\\Privacy.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\hampus.grunewald\\Documents\\Frilansare\\Pages\\_ViewImports.cshtml",
-      "TargetPath": "Pages\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\hampus.grunewald\\Documents\\Frilansare\\Pages\\_ViewStart.cshtml",
-      "TargetPath": "Pages\\_ViewStart.cshtml",
-      "FileKind": "mvc"
-    }
-  ],
+  "Documents": [],
   "SerializationFormat": "0.3"
 }

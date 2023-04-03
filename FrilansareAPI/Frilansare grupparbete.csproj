@@ -4,11 +4,12 @@
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <RootNamespace>Frilansare_grupparbete</RootNamespace>
+    <RootNamespace>Frilansare</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="MongoDB.Driver" Version="2.19.1" />
+    <ProjectReference Include="FrilansareAPI\Frilansare grupparbete.csproj"/>
   </ItemGroup>
 
 </Project>

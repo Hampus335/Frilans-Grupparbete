@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\hampus.grunewald\\Documents\\Frilansare\\Frilansare grupparbete.csproj": {}
+    "C:\\Users\\hampus.grunewald\\Documents\\Frilansare\\Frilansare\\Frilansare.csproj": {}
   },
   "projects": {
-    "C:\\Users\\hampus.grunewald\\Documents\\Frilansare\\Frilansare grupparbete.csproj": {
+    "C:\\Users\\hampus.grunewald\\Documents\\Frilansare\\Frilansare\\Frilansare.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hampus.grunewald\\Documents\\Frilansare\\Frilansare grupparbete.csproj",
-        "projectName": "Frilansare grupparbete",
-        "projectPath": "C:\\Users\\hampus.grunewald\\Documents\\Frilansare\\Frilansare grupparbete.csproj",
+        "projectUniqueName": "C:\\Users\\hampus.grunewald\\Documents\\Frilansare\\Frilansare\\Frilansare.csproj",
+        "projectName": "Frilansare",
+        "projectPath": "C:\\Users\\hampus.grunewald\\Documents\\Frilansare\\Frilansare\\Frilansare.csproj",
         "packagesPath": "C:\\Users\\hampus.grunewald\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hampus.grunewald\\Documents\\Frilansare\\obj\\",
+        "outputPath": "C:\\Users\\hampus.grunewald\\Documents\\Frilansare\\Frilansare\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\hampus.grunewald\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -41,9 +41,13 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
-            "MongoDB.Driver": {
+            "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
-              "version": "[2.19.1, )"
+              "version": "[7.0.4, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.4.0, )"
             }
           },
           "imports": [

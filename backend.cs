@@ -20,12 +20,13 @@ namespace FreelancerProject
         public string education = Request.Form["education"];
     }
 
-    private static class Program
+    static class Program
     {   
         private static void Main()
         {
 
         }
+        
 
         private static void sendData()
         {

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\hampus.grunewald\\Documents\\Frilansare\\Frilansare grupparbete.csproj": {}
+    "C:\\Users\\hampus.grunewald\\Documents\\Frilansare\\FrilansareAPI\\Frilansare grupparbete.csproj": {}
   },
   "projects": {
-    "C:\\Users\\hampus.grunewald\\Documents\\Frilansare\\Frilansare grupparbete.csproj": {
+    "C:\\Users\\hampus.grunewald\\Documents\\Frilansare\\FrilansareAPI\\Frilansare grupparbete.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hampus.grunewald\\Documents\\Frilansare\\Frilansare grupparbete.csproj",
+        "projectUniqueName": "C:\\Users\\hampus.grunewald\\Documents\\Frilansare\\FrilansareAPI\\Frilansare grupparbete.csproj",
         "projectName": "Frilansare grupparbete",
-        "projectPath": "C:\\Users\\hampus.grunewald\\Documents\\Frilansare\\Frilansare grupparbete.csproj",
+        "projectPath": "C:\\Users\\hampus.grunewald\\Documents\\Frilansare\\FrilansareAPI\\Frilansare grupparbete.csproj",
         "packagesPath": "C:\\Users\\hampus.grunewald\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hampus.grunewald\\Documents\\Frilansare\\obj\\",
+        "outputPath": "C:\\Users\\hampus.grunewald\\Documents\\Frilansare\\FrilansareAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\hampus.grunewald\\AppData\\Roaming\\NuGet\\NuGet.Config",
