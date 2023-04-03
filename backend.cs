@@ -4,6 +4,35 @@ using MongoDB.Driver;
 
 namespace FreelancerProject
 {
+
+    // hindrar syntax error
+    public static class Request
+    {
+        public static Dictionary<string, string> Form = new Dictionary<string, string> {
+        };
+    }
+
+    public class Frilansare
+    {
+
+    }
+
+    public class person 
+    {
+        public string firstName { get; set; }
+        public string surName { get; set; }
+        public int age { get; set; }
+        public string email { get; set; }
+        public string phoneNumber { get; set; }
+        public string country { get; set; }
+        public string language { get; set; }
+        public string nationality { get; set; }
+        public string driversLicense { get; set; }
+        public string selfDescription{ get; set; }
+        public List<string> abilities { get; set; }
+        public string education { get; set; }
+    }
+
     public class CV
     {
         public string firstName = Request.Form["firstName"];
@@ -22,26 +51,27 @@ namespace FreelancerProject
 
     static class Program
     {   
-        private static void Main()
+        public static void Main(string[] args)
         {
 
         }
         
 
-        private static void sendData()
+        private static async void sendData()
         {
             var client = new MongoClient("mongodb://localhost:27017");
             var database = client.GetDatabase("mydatabase");
 
-            var collection = database.GetCollection<Frilansare>("CVn");
-            var CV = new person { person.firstName, person.surName, person.age, person.email, person.phoneNumber, person.country, person.language, person.nationality, person.driversLicense, person.selfDescription, person.abilities, person.education };
+            var collection = database.GetCollection<CV>("CVn");
+            //var CV = new person { person.firstName, person.surName, person.age, person.email, person.phoneNumber, person.country, person.language, person.nationality, person.driversLicense, person.selfDescription, person.abilities, person.education };
+            var CV = new CV { };
             await collection.InsertOneAsync(CV);
         }
 
         private static async void RetrieveData()
         {
-            //var client = new MongoClient("mongodb://localhost:27017");
-            //var database = client.GetDatabase("mydatabase");
+            var client = new MongoClient("mongodb://localhost:27017");
+            var database = client.GetDatabase("mydatabase");
 
             var collection = database.GetCollection<Frilansare>("CVn");
             var CVn = await collection.Find(x => true).ToListAsync();

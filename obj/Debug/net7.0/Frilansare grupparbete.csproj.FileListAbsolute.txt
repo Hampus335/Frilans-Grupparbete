@@ -1,8 +1,0 @@
-C:\Users\hampus.grunewald\Documents\Frilansare\obj\Debug\net7.0\Frilansare grupparbete.csproj.AssemblyReference.cache
-C:\Users\hampus.grunewald\Documents\Frilansare\obj\Debug\net7.0\Frilansare grupparbete.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\hampus.grunewald\Documents\Frilansare\obj\Debug\net7.0\Frilansare grupparbete.AssemblyInfoInputs.cache
-C:\Users\hampus.grunewald\Documents\Frilansare\obj\Debug\net7.0\Frilansare grupparbete.AssemblyInfo.cs
-C:\Users\hampus.grunewald\Documents\Frilansare\obj\Debug\net7.0\Frilansare grupparbete.csproj.CoreCompileInputs.cache
-C:\Users\hampus.grunewald\Documents\Frilansare\obj\Debug\net7.0\Frilansare grupparbete.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\hampus.grunewald\Documents\Frilansare\obj\Debug\net7.0\Frilansare grupparbete.RazorAssemblyInfo.cache
-C:\Users\hampus.grunewald\Documents\Frilansare\obj\Debug\net7.0\Frilansare grupparbete.RazorAssemblyInfo.cs
