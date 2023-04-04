@@ -1,3 +1,23 @@
+function submitForm() {
+    const form = document.getElementById("myForm");
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+  
+    // Send the form data to an API endpoint
+    fetch('https://example.com/api/formdata', {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error(error));
+  };
+  
+  
+
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -29,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-submitForm();
+
  // Get the search input fields
 const searchInputs = document.querySelectorAll('.search-input');
 
@@ -69,14 +89,7 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
-/*
-function submitForm() {
-    const form = document.getElementById("myForm");
-    const formData = new FormData(form);
-    const data = Object.fromEntries(formData.entries());
-    console.log(data);
-  };
-  */
+
 
   const kompetensEl = document.getElementById("kompetens");
   const teknologierEl = document.getElementById("teknologier");
@@ -128,60 +141,8 @@ function submitForm() {
   
 
 
-function submitForm() {
-    const form = document.getElementById("myForm");
-    const formData = new FormData(form);
-    const data = Object.fromEntries(formData.entries());
-    
-    // Send the form data to an API endpoint
-    fetch('https://example.com/api/formdata', {
-      method: 'POST',
-      body: JSON.stringify(data),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.error(error));
-  }
-
-
-      return true;
-      const form = document.getElementById("login-form");
-const username = document.getElementById("username");
-const password = document.getElementById("password");
-const usernameError = document.getElementById("username-error");
-const passwordError = document.getElementById("password-error");
-
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
-
-  // Validate username
-  if (username.value === "") {
-    usernameError.textContent = "Please enter a username";
-    usernameError.classList.add("show");
-  } else {
-    usernameError.classList.remove("show");
-  }
-
-  // Validate password
-  if (password.value === "") {
-    passwordError.textContent = "Please enter a password";
-    passwordError.classList.add("show");
-  } else {
-    passwordError.classList.remove("show");
-  }
-
-  // If no errors, submit form
-  if (!usernameError.classList.contains("show") && !passwordError.classList.contains("show")) {
-    form.submit();
-  }
-});
+ 
 
 
 
 
-
-  
-  
