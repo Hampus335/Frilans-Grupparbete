@@ -9,7 +9,19 @@
     <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
-
+    
+    <div class="navbar">
+        <nav>
+         <ul>
+          <li><a href="start.html">Hem</a></li> 
+          <li><a href="#">Konto</a></li>
+          <li><a href="#">Om oss</a></li>
+          <li><a href="freelancer.html">Frilansare</a></li>
+          <li><a href="kund.html">Kund</a></li>
+        </ul>
+       </nav>
+       <img src="images/menu.png" class="menu-icon">
+      </div>
         <div class="freeForm">
         <form id="myForm">
 
@@ -39,7 +51,7 @@
 
             <label for="driversLicense"><p>Lägg in en bild på ditt Körkort.</p></label>
             <input type="file" name="driversLicense" accept="image/png, image/jpeg"> 
-
+            
             <label for="kompetens">Välj kompetens:</label>
             <select id="kompetens">
             <option value="">Välj en kompetens</option>
@@ -53,14 +65,14 @@
                 <option value="">Välj en kompetens först</option>
             </select>
             </div>
-            
+                
             <div id="valda-teknologier-container">
             <label for="valda-teknologier">Valda teknologier:</label>
             <select id="valda-teknologier" multiple disabled>
                 <option value="">Välj en kompetens först</option>
             </select>
             </div>
-            
+  
 
             <label for="description"><p>Språk.</p></label>
             <input type="text" name="language" id="language" placeholder="Språkkunskaper...">
