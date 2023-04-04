@@ -3,6 +3,8 @@
   padding: 0;
 
 }
+
+body {font-family: Arial, Helvetica, sans-serif;}
 /*Start.html CSS start*/
 .container{
     width: 100%;
@@ -173,12 +175,6 @@ h1{
   opacity: 0;
 }
 
-
-
-
-
-
-body {font-family: Arial, Helvetica, sans-serif;}
 
 /* Full-width input fields */
 input[type=text], input[type=password] {
@@ -410,7 +406,7 @@ hr {
 
 
 
-
+/*Form css*/
 /* Style for the entire form container */
 .freeForm {
   max-width: 800px;
@@ -524,7 +520,7 @@ select[multiple] {
 .table tr:nth-child(even) {
   background-color: #f2f2f2;
 }
-
+/* Table styles end */
 /* Search input styles */
 .search-input {
   width: 100%;
@@ -539,41 +535,66 @@ select[multiple] {
   outline: none;
   box-shadow: 0 0 5px #1C1C1C;
 }
-
+/* Search input style end*/
 
 
 
 /*Login page css*/
+.form-group > form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
 .form-group {
+  display: flex;
+  flex-direction: column;
   margin-bottom: 20px;
 }
 
-label {
-  display: block;
-  margin-bottom: 5px;
+.form-group > label {
   font-weight: bold;
+  margin-bottom: 5px;
 }
 
 .form-group > input[type="text"],
 input[type="password"] {
-  width: 25%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  font-size: 16px;
-  font-family: Arial, sans-serif;
-  color: #444;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #eee;
+  width: 100%;
 }
 
-.fromgroup > input[type="submit"] {
-  background-color: #4CAF50;
-  color: white;
-  padding: 12px 20px;
+.form-group > input[type="submit"] {
+  background-color: #333;
+  color: #fff;
   border: none;
-  border-radius: 4px;
+  padding: 10px 20px;
+  border-radius: 5px;
   cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
+}
+
+.form-group > input[type="submit"]:hover {
+  background-color: #555;
 }
 /*Log in page css end*/
+
+/*Explore button css*/
+#explore-button {
+  background-color: darkblue; /* Set the background color */
+  color: white; /* Set the text color */
+  padding: 14px 20px; /* Set the padding */
+  font-size: 24px; /* Set the font size */
+  border: none; /* Remove the border */
+  border-radius: 10px; /* Add rounded corners */
+  cursor: pointer; /* Add a pointer on hover */
+  padding-top: 10px;
+  margin-top: 10px;
+}
+
+#explore-button:hover {
+  background-color: #3e8e41; /* Darken the background color on hover */
+}
+/**/
