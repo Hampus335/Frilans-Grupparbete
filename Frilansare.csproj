@@ -8,7 +8,20 @@
 
   <ItemGroup>
     <None Include="wwwroot\css\style.css" />
+    <None Include="wwwroot\images\background.png" />
+    <None Include="wwwroot\images\city.jpg" />
+    <None Include="wwwroot\images\kelter.jpg" />
+    <None Include="wwwroot\images\menu.png" />
+    <None Include="wwwroot\images\pic-1.png" />
+    <None Include="wwwroot\images\pic-2.png" />
+    <None Include="wwwroot\images\pic-3.png" />
+    <None Include="wwwroot\images\pic-4.png" />
     <None Include="wwwroot\js\javascript.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MongoDB.Bson" Version="2.19.1" />
+    <PackageReference Include="MongoDB.Driver" Version="2.19.1" />
   </ItemGroup>
 
 </Project>

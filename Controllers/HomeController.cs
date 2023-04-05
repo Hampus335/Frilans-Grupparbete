@@ -38,6 +38,17 @@ namespace Frilansare.Controllers
             return View();
         }
 
+        public IActionResult AddPerson(
+            string firstName, string surName,
+            int age, string email, string phoneNumber,
+            string education, string nationality,
+            string country, string driversLicense,
+            string[] competences, string language,
+            string selfDescription, string adress)
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
