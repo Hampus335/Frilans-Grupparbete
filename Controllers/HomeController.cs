@@ -38,7 +38,7 @@ namespace Frilansare.Controllers
         {
             return View();
         }
-     [HttpPost("AddPerson")]
+     [HttpPost("/AddPerson")]
      public async Task<IActionResult> AddPersonAsync(
      string firstName, string surName,
      int age, string email, string phoneNumber,
@@ -69,7 +69,7 @@ namespace Frilansare.Controllers
             };
 
             await backend.CreateDatabaseAndSavePersonAsync(person);
-            return View();
+            return Redirect("/");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
