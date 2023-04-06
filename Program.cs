@@ -1,5 +1,10 @@
-var builder = WebApplication.CreateBuilder(args);
+using FreelancerProject;
+using Frilansare.Controllers;
+using Frilansare.Models;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
+var builder = WebApplication.CreateBuilder(args);
+    
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 

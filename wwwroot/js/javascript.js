@@ -97,9 +97,9 @@ window.onclick = function(event) {
 
   // Objekt med teknologier för varje kompetens
   const technologies = {
-    grafiskdesigner: ["Adobe Photoshop", "Adobe Illustrator", "Sketch", "Figma"],
-    webDeveloper: ["HTML", "CSS", "JavaScript", "React", "Vue", "Angular"],
-    backendutvecklare = ["C#", "Python", "Java", "PHP", "Ruby", "SQL", "Go"]
+    graphicDesigner: ["Adobe Photoshop", "Adobe Illustrator", "Sketch", "Figma"],
+    webDeveloper: ["HTML", "CSS", "JavaScript", "React", "Vue", "Angular"]
+    //backendutvecklare = ["C#", "Python", "Java", "PHP", "Ruby", "SQL", "Go"]
   };
   
   // Funktion för att uppdatera teknologilistan baserat på vald kompetens
@@ -115,7 +115,7 @@ window.onclick = function(event) {
       const option = document.createElement("option");
       option.value = teknologi;
       option.text = teknologi;
-      technologiesEl.appendChild(option);
+      technologiesEl.appendChild(option);   
     });
 
     // Aktivera teknologilistan och ta bort "Välj en teknologi" från valda teknologier-listan
