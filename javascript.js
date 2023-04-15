@@ -145,22 +145,4 @@ window.onclick = function(event) {
 
 
 
-/*Preview image JavaScript */
-  const fileInput = document.getElementById('fileInput');
-  const previewImage = document.getElementById('previewImage');
-  
-  fileInput.addEventListener('change', function() {
-    const reader = new FileReader();
-  
-    reader.addEventListener('load', function() {
-      // Set the image source to the loaded data URL
-      previewImage.src = reader.result;
-    });
-  
-    if (fileInput.files[0]) {
-      // Read the selected file as a data URL
-      reader.readAsDataURL(fileInput.files[0]);
-    }
-  });
-  /*Preview of image JavaScript */
-  
+
