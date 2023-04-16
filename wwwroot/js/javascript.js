@@ -96,11 +96,12 @@ window.onclick = function(event) {
   const chosenTechnologiesEl = document.getElementById("valda-teknologier");
 
   // Objekt med teknologier för varje kompetens
-  const technologies = {
+const technologies = {
     graphicDesigner: ["Adobe Photoshop", "Adobe Illustrator", "Sketch", "Figma"],
-    webDeveloper: ["HTML", "CSS", "JavaScript", "React", "Vue", "Angular"]
-    //backendutvecklare = ["C#", "Python", "Java", "PHP", "Ruby", "SQL", "Go"]
-  };
+    webDeveloper: ["HTML", "CSS", "JavaScript", "React", "Vue", "Angular"],
+    backendutvecklare: ["C#", "Python", "Java", "PHP", "Ruby", "SQL", "Go"]
+};
+
   
   // Funktion för att uppdatera teknologilistan baserat på vald kompetens
   function updateTechnologies() {
