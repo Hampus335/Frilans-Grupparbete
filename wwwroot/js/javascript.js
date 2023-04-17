@@ -14,12 +14,159 @@ function submitForm() {
     .then(response => response.json())
     .then(data => console.log(data))
     .catch(error => console.error(error));
-  };
-  
-  
+};
 
 
 
+// Table database functionality with mongoDB.
+const express = require('express');
+const router = express.Router();
+const MongoClient = require('mongodb').MongoClient;
+
+const url = 'mongodb://localhost:27017';
+const dbName = 'mydb';
+
+router.get('/data', (req, res) => {
+    MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true }, (err, client) => {
+        if (err) {
+            console.log('Error connecting to MongoDB:', err);
+            res.status(500).send('Error connecting to MongoDB');
+        } else {
+            const db = client.db(dbName);
+            const collection = db.collection('mycollection');
+
+            collection.find({}).toArray((err, docs) => {
+                if (err) {
+                    console.log('Error retrieving data from MongoDB:', err);
+                    res.status(500).send('Error retrieving data from MongoDB');
+                } else {
+                    res.json(docs);
+                }
+
+                client.close();
+            });
+        }
+    });
+});
+
+module.exports = router;
+// Import necessary modules
+const express = require('express');
+const router = express.Router();
+const MongoClient = require('mongodb').MongoClient;
+
+// Set up MongoDB connection details
+const url = 'mongodb://localhost:27017';
+const dbName = 'mydb';
+
+// Define a GET endpoint for the route "/data"
+router.get('/data', (req, res) => {
+    // Connect to MongoDB
+    MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true }, (err, client) => {
+        if (err) {
+            // If there's an error, log it and send an error response to the client
+            console.log('Error connecting to MongoDB:', err);
+            res.status(500).send('Error connecting to MongoDB');
+        } else {
+            // If the connection is successful, retrieve data from the "mycollection" collection
+            const db = client.db(dbName);
+            const collection = db.collection('mycollection');
+
+            // Find all documents in the collection and convert them to an array
+            collection.find({}).toArray((err, docs) => {
+                if (err) {
+                    // If there's an error, log it and send an error response to the client
+                    console.log('Error retrieving data from MongoDB:', err);
+                    res.status(500).send('Error retrieving data from MongoDB');
+                } else {
+                    // If the data is retrieved successfully, send it as a JSON response to the client
+                    res.json(docs);
+                }
+                // Close the connection to MongoDB
+                client.close();
+            });
+        }
+    });
+});
+
+// Export the router so it can be used in other modules
+module.exports = router;
+
+// Filtering table script
+
+document.addEventListener("DOMContentLoaded", () => {
+    // For each search input field on the page
+    document.querySelectorAll(".search-input").forEach((inputField) => {
+        // Get the table rows associated with the search input
+        const tableRows = inputField.closest("table").querySelectorAll("tbody > tr");
+        // Get the header cell associated with the search input
+        const headerCell = inputField.closest("th");
+        // Get the other header cells in the same row as the search input
+        const otherHeaderCells = headerCell.closest("tr").children;
+        // Get the index of the header cell associated with the search input
+        const columnIndex = Array.from(otherHeaderCells).indexOf(headerCell);
+
+        // When the search input field is changed
+        inputField.addEventListener("input", () => {
+            // Get the search query entered by the user
+            const searchQuery = inputField.value.toLowerCase();
+
+            // Send a GET request to the "/data" endpoint to retrieve the data for the table
+            fetch('/data')
+                .then(response => response.json())
+                .then(data => {
+                    // Create table rows from the data
+                    const tableBody = document.querySelector('#table-data tbody');
+                    tableBody.innerHTML = '';
+                    data.forEach(row => {
+                        const tableRow = document.createElement('tr');
+                        Object.values(row).forEach(cellValue => {
+                            const tableCell = document.createElement('td');
+                            tableCell.textContent = cellValue;
+                            tableRow.appendChild(tableCell);
+                        });
+                        tableBody.appendChild(tableRow);
+                    });
+
+                    // Get the cells in the table column associated with the search input
+                    const searchableCells = data.map((row) => row.columns[columnIndex]);
+
+                    // For each cell in the table column
+                    for (const tableCell of searchableCells) {
+                        // Get the row associated with the cell
+                        const row = tableCell.closest("tr");
+                        // Get the value of the cell (as lowercase text with commas removed)
+                        const value = tableCell.text.toLowerCase().replace(",", "");
+
+                        // Make the row visible (in case it was previously hidden)
+                        row.style.visibility = null;
+
+                        // If the value of the cell doesn't match the search query
+                        if (value.search(searchQuery) === -1) {
+                            // Hide the row
+                            row.style.visibility = "collapse";
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }); 
+
+        // Show all table rows when the search input field is cleared
+        inputField.addEventListener("search", () => {
+            const tableRows = inputField.closest("table").querySelectorAll("tbody > tr");
+            for (const row of tableRows) {
+                row.style.visibility = null;
+            }
+        });
+    });
+});
+
+
+
+
+/*
 document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".search-input").forEach((inputField) => {
       const tableRows = inputField
@@ -71,8 +218,10 @@ searchInputs.forEach((input) => {
     });
   });
 });
+*/
 
-  //end of table search list.
+
+
 
   var modal = document.getElementById('id01');
 
@@ -107,9 +256,6 @@ const technologies = {
     webDeveloper: ["HTML", "CSS", "JavaScript", "React", "Vue", "Angular"],
     backendutvecklare: ["C#", "Python", "Java", "PHP", "Ruby", "SQL", "Go"]
 };
-
-  
-
 
   // Function to update the technology list based on selected competences
   function updateTechnologies() {
