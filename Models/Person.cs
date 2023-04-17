@@ -1,5 +1,8 @@
 ﻿using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson;
+using System;
+using FreelancerProject;
+using Frilansare.Controllers;
 
 namespace Frilansare.Models
 {
@@ -22,5 +25,17 @@ namespace Frilansare.Models
         public string[] Competences { get; set; }
         public string SelfDescription { get; set; }
         public string Adress { get; set; }
+
+        public void PersonToDatabase(string firstName, string surName,
+     int age, string email, string phoneNumber,
+     string education, string nationality,
+     string country, string driversLicense,
+     string[] competences, string language,
+     string selfDescription, string address)
+        {
+            Person person = new Person();
+            HomeController hc = new HomeController();
+            hc.AddPersonAsync(person);
+        }
     }
 }

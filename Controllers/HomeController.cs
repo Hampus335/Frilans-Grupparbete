@@ -40,33 +40,12 @@ namespace Frilansare.Controllers
         }
      [HttpPost("/AddPerson")]
      public async Task<IActionResult> AddPersonAsync(
-     string firstName, string surName,
-     int age, string email, string phoneNumber,
-     string education, string nationality,
-     string country, string driversLicense,
-     string[] competences, string language, 
-     string selfDescription, string address)
+     Person person)
         {
 
             Console.WriteLine("Hello, works");
             
             Backend backend = new Backend();
-            Person person = new Person()
-            {
-                FirstName = firstName,
-                SurName = surName,
-                Age = age,
-                Email = email,
-                PhoneNumber = phoneNumber,
-                Education = education,
-                Nationality = nationality,
-                Country = country,
-                DriversLicense = driversLicense,
-                Competences = competences,
-                Language = language,
-                SelfDescription = selfDescription,
-                Adress = address
-            };
 
             await backend.CreateDatabaseAndSavePersonAsync(person);
             return Redirect("/");
