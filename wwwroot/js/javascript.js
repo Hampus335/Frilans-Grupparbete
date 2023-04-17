@@ -72,6 +72,8 @@ searchInputs.forEach((input) => {
   });
 });
 
+  //end of table search list.
+
   var modal = document.getElementById('id01');
 
 // When the user clicks anywhere outside of the modal, close it
@@ -95,7 +97,11 @@ window.onclick = function(event) {
   const technologiesEl = document.getElementById("teknologier");
   const chosenTechnologiesEl = document.getElementById("valda-teknologier");
 
-  // Objekt med teknologier för varje kompetens
+
+  
+
+ 
+  // Items with technologies for each competence
 const technologies = {
     graphicDesigner: ["Adobe Photoshop", "Adobe Illustrator", "Sketch", "Figma"],
     webDeveloper: ["HTML", "CSS", "JavaScript", "React", "Vue", "Angular"],
@@ -103,41 +109,45 @@ const technologies = {
 };
 
   
-  // Funktion för att uppdatera teknologilistan baserat på vald kompetens
+
+
+  // Function to update the technology list based on selected competences
   function updateTechnologies() {
-    // Hämta vald kompetens från dropdown-listan
+
+// Get selected competences from the dropdown list
     const chosenCompetences = competenceEl.value;
 
-    // Töm teknologilistan och lägg till "Välj en teknologi" som första alternativ
-    technologiesEl.innerHTML = "<option value=''>Välj en teknologi</option>";
 
-    // Lägg till teknologier för den valda kompetensen i teknologilistan
+
+    // Clear the technology list and add "Select a technology" as the first option.
+    technologiesEl.innerHTML = "<option value=''>Välj en teknologi</option>";
+    // Add technologies for the selected competence to the technology list
     technologies[chosenCompetences].forEach(function(teknologi) {
       const option = document.createElement("option");
       option.value = teknologi;
       option.text = teknologi;
       technologiesEl.appendChild(option);   
     });
-
-    // Aktivera teknologilistan och ta bort "Välj en teknologi" från valda teknologier-listan
+    // Activate the technology list and remove "Select a technology" from the selected technologies list.
     technologiesEl.disabled = false;
     chosenTechnologiesEl.innerHTML = "";
     chosenTechnologiesEl.disabled = false;
   }
-  
-  // Funktion för att lägga till valda teknologier i valda teknologier-listan
+
+
+  // Function to add selected technologies to the selected technologies list
   function addTechnology() {
     // Hämta vald teknologi från dropdown-listan
     const chosenTechnology = technologiesEl.value;
 
-    // Skapa en ny option-element för vald teknologi och lägg till den i valda teknologier-listan
+    // Create a new option element for the selected technology and add it to the selected technologies list.
     const option = document.createElement("option");
     option.value = chosenTechnology;
     option.text = chosenTechnology;
     chosenTechnologiesEl.appendChild(option);
   }
 
-  // Lägg till händelsehanterare för när användaren väljer en kompetens och när en teknologi läggs till
+  // Add event handlers for when the user selects a competence and when a technology is added.
   competenceEl.addEventListener("change", updateTechnologies);
   technologiesEl.addEventListener("change", addTechnology);
   

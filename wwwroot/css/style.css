@@ -98,11 +98,10 @@ h1{
   background-position: center;
   background-size: cover;
 }
+/*Home page css end*/
 
 
-
-
-
+/*Start of Customer page search table*/
 .table{
   font-family: 'Courier New', Courier, monospace;
   border-collapse: collapse;
@@ -175,7 +174,7 @@ h1{
   opacity: 0;
 }
 
-
+/*Login page css    */
 /* Full-width input fields */
 input[type=text], input[type=password] {
   width: 100%;
