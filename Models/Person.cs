@@ -34,8 +34,8 @@ namespace Frilansare.Models
      string selfDescription, string address)
         {
             Person person = new Person();
-            HomeController hc = new HomeController();
-            hc.AddPersonAsync(person);
+            //HomeController hc = new HomeController();
+            //hc.AddPersonAsync(person);
         }
     }
 }
