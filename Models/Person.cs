@@ -24,7 +24,7 @@ namespace Frilansare.Models
         public string DriversLicense { get; set; }
         public string[] Competences { get; set; }
         public string SelfDescription { get; set; }
-        public string Adress { get; set; }
+        public string Address { get; set; }
 
         public void PersonToDatabase(string firstName, string surName,
      int age, string email, string phoneNumber,
