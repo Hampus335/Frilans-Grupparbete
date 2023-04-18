@@ -18,38 +18,37 @@ function submitForm() {
 
 
 
-    // Table database functionality with mongoDB.
-    const express = require('express');
-    const router = express.Router();
-    const MongoClient = require('mongodb').MongoClient;
+   const router = require('express').Router();
+const MongoClient = require('mongodb').MongoClient;
 
-    const url = 'mongodb://localhost:27017';
-    const dbName = 'mydb';
+const url = 'mongodb://localhost:27017';
+const dbName = 'mydb';
 
-    router.get('/data', (req, res) => {
-        MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true }, (err, client) => {
-            if (err) {
-                console.log('Error connecting to MongoDB:', err);
-                res.status(500).send('Error connecting to MongoDB');
-            } else {
-                const db = client.db(dbName);
-                const collection = db.collection('mycollection');
+router.get('/data', (req, res) => {
+    MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true }, (err, client) => {
+        if (err) {
+            console.log('Error connecting to MongoDB:', err);
+            res.status(500).send('Error connecting to MongoDB');
+        } else {
+            const db = client.db(dbName);
+            const collection = db.collection('mycollection');
 
-                collection.find({}).toArray((err, docs) => {
-                    if (err) {
-                        console.log('Error retrieving data from MongoDB:', err);
-                        res.status(500).send('Error retrieving data from MongoDB');
-                    } else {
-                        res.json(docs);
-                    }
+            collection.find({}).toArray((err, docs) => {
+                if (err) {
+                    console.log('Error retrieving data from MongoDB:', err);
+                    res.status(500).send('Error retrieving data from MongoDB');
+                } else {
+                    res.json(docs);
+                }
 
-                    client.close();
-                });
-            }
-        });
+                client.close();
+            });
+        }
     });
+});
 
-    module.exports = router;
+module.exports = router;
+
     // Import necessary modules
     const express = require('express');
     const router = express.Router();
@@ -166,7 +165,7 @@ function submitForm() {
 
 
 
-/*
+
 document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".search-input").forEach((inputField) => {
       const tableRows = inputField
@@ -247,9 +246,6 @@ window.onclick = function(event) {
   const chosenTechnologiesEl = document.getElementById("valda-teknologier");
 
 
-  
-
- 
   // Items with technologies for each competence
 const technologies = {
     graphicDesigner: ["Adobe Photoshop", "Adobe Illustrator", "Sketch", "Figma"],
@@ -303,7 +299,7 @@ const technologies = {
 
 
 
-
+/*
 const form = document.querySelector('#myForm');
 const nameInput = document.querySelector('#name');
 const lastNameInput = document.querySelector('#lastname');
