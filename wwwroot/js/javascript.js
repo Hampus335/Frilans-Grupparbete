@@ -22,9 +22,10 @@ const searchInputs = document.querySelectorAll('.search-input');
 // Add an event listener to each search input
 searchInputs.forEach(input => {
     input.addEventListener('keyup', event => {
-        // Get the value of the input and log it to the console
+        // Get the value of the input and its column number
         const value = event.target.value;
-        console.log(value);
+        const columnNumber = event.target.getAttribute('data-column');
+        console.log(`Search term: ${value}, Column number: ${columnNumber}`);
     });
 });
 
@@ -47,8 +48,7 @@ searchInputs.forEach(input => {
 //    });
 //}
 
-    });
-}
+
 
 
 //Modal Start JavaScript.
