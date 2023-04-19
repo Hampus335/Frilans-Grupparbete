@@ -84,11 +84,28 @@ namespace Frilansare.Controllers
             var collection = database.GetCollection<BsonDocument>(collectionName);
 
             var filterBuilder = Builders<BsonDocument>.Filter;
-            var filter = filterBuilder.Regex("FirstName", new BsonRegularExpression(firstName))
-                & filterBuilder.Regex("SurName", new BsonRegularExpression(surName))
-                & filterBuilder.Regex("Education", new BsonRegularExpression(education))
-                & filterBuilder.Regex("SelfDescription", new BsonRegularExpression(selfDescription));
+            var filters = new List<FilterDefinition<BsonDocument>>();
 
+            if (!string.IsNullOrWhiteSpace(firstName))
+            {
+                filters.Add(filterBuilder.Regex("FirstName", new BsonRegularExpression(firstName)));
+            }
+
+            if (!string.IsNullOrWhiteSpace(surName))
+            {
+                filters.Add(filterBuilder.Regex("SurName", new BsonRegularExpression(surName)));
+            }
+
+            if (!string.IsNullOrWhiteSpace(education))
+            {
+                filters.Add(filterBuilder.Regex("Education", new BsonRegularExpression(education)));
+            }
+
+            if (!string.IsNullOrWhiteSpace(selfDescription))
+            {
+                filters.Add(filterBuilder.Regex("SelfDescription", new BsonRegularExpression(selfDescription)));
+            }
+            var filter = filterBuilder.And(filters);
             var results = collection.Find(filter).ToList();     
 
             return View(results);
