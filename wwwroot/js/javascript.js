@@ -19,7 +19,7 @@ function submitForm() {
 // Get the search inputs
 const searchInputs = document.querySelectorAll('.search-input');
 
-// Add an event listener to each search input
+/* Add an event listener to each search input
 searchInputs.forEach(input => {
     input.addEventListener('keyup', event => {
         // Get the value of the input and its ID
@@ -33,7 +33,35 @@ searchInputs.forEach(input => {
         console.log(`Search term: ${value}, Input ID: ${id}`);
     });
 });
+*/
 
+// Create a new XMLHttpRequest object
+var xhr = new XMLHttpRequest();
+
+// Set the HTTP method to GET and the endpoint URL
+xhr.open("GET", "/SearchCV");
+
+// Set the content type of the request header
+xhr.setRequestHeader("Content-Type", "application/json");
+
+// Define the callback function to be executed when the request is complete
+xhr.onload = function () {
+    if (xhr.status === 200) {
+        // Parse the JSON response
+        var response = JSON.parse(xhr.responseText);
+
+        // Do something with the response data
+        console.log(response);
+    } else {
+        // Handle errors here
+        console.error("Request failed with status:", xhr.status);
+    }
+};
+
+// Send the request
+xhr.send();
+
+    
 
 //// Add event listener to all search inputs
 //for (var i = 0; i < searchInputs.length; i++) {
