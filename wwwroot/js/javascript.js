@@ -17,241 +17,240 @@ function submitForm() {
 };
 
 
-//Start of MongoDB table functionality.
-   const router = require('express').Router();
-const MongoClient = require('mongodb').MongoClient;
+////Start of MongoDB table functionality.
+//   const router = require('express').Router();
+//const MongoClient = require('mongodb').MongoClient;
 
-const url = 'mongodb://localhost:27017';
-const dbName = 'mydb';
+//const url = 'mongodb://localhost:27017';
+//const dbName = 'mydb';
 
-router.get('/data', (req, res) => {
-    MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true }, (err, client) => {
-        if (err) {
-            console.log('Error connecting to MongoDB:', err);
-            res.status(500).send('Error connecting to MongoDB');
-        } else {
-            const db = client.db(dbName);
-            const collection = db.collection('mycollection');
+//router.get('/data', (req, res) => {
+//    MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true }, (err, client) => {
+//        if (err) {
+//            console.log('Error connecting to MongoDB:', err);
+//            res.status(500).send('Error connecting to MongoDB');
+//        } else {
+//            const db = client.db(dbName);
+//            const collection = db.collection('mycollection');
 
-            collection.find({}).toArray((err, docs) => {
-                if (err) {
-                    console.log('Error retrieving data from MongoDB:', err);
-                    res.status(500).send('Error retrieving data from MongoDB');
-                } else {
-                    res.json(docs);
-                }
+//            collection.find({}).toArray((err, docs) => {
+//                if (err) {
+//                    console.log('Error retrieving data from MongoDB:', err);
+//                    res.status(500).send('Error retrieving data from MongoDB');
+//                } else {
+//                    res.json(docs);
+//                }
 
-                client.close();
-            });
-        }
-    });
-});
+//                client.close();
+//            });
+//        }
+//    });
+//});
 
-module.exports = router;
+//module.exports = router;
 
-    // Import necessary modules
-    const express = require('express');
-    const router = express.Router();
-    const MongoClient = require('mongodb').MongoClient;
+//    // Import necessary modules
+//    const express = require('express');
+//    const router = express.Router();
+//    const MongoClient = require('mongodb').MongoClient;
 
-    // Set up MongoDB connection details
-    const url = 'mongodb://localhost:27017';
-    const dbName = 'mydb';
+//    // Set up MongoDB connection details
+//    const url = 'mongodb://localhost:27017';
+//    const dbName = 'mydb';
 
-    // Define a GET endpoint for the route "/data"
-    router.get('/data', (req, res) => {
-        // Connect to MongoDB
-        MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true }, (err, client) => {
-            if (err) {
-                // If there's an error, log it and send an error response to the client
-                console.log('Error connecting to MongoDB:', err);
-                res.status(500).send('Error connecting to MongoDB');
-            } else {
-                // If the connection is successful, retrieve data from the "mycollection" collection
-                const db = client.db(dbName);
-                const collection = db.collection('mycollection');
+//    // Define a GET endpoint for the route "/data"
+//    router.get('/data', (req, res) => {
+//        // Connect to MongoDB
+//        MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true }, (err, client) => {
+//            if (err) {
+//                // If there's an error, log it and send an error response to the client
+//                console.log('Error connecting to MongoDB:', err);
+//                res.status(500).send('Error connecting to MongoDB');
+//            } else {
+//                // If the connection is successful, retrieve data from the "mycollection" collection
+//                const db = client.db(dbName);
+//                const collection = db.collection('mycollection');
 
-                // Find all documents in the collection and convert them to an array
-                collection.find({}).toArray((err, docs) => {
-                    if (err) {
-                        // If there's an error, log it and send an error response to the client
-                        console.log('Error retrieving data from MongoDB:', err);
-                        res.status(500).send('Error retrieving data from MongoDB');
-                    } else {
-                        // If the data is retrieved successfully, send it as a JSON response to the client
-                        res.json(docs);
-                    }
-                    // Close the connection to MongoDB
-                    client.close();
-                });
-            }
-        });
-    });
+//                // Find all documents in the collection and convert them to an array
+//                collection.find({}).toArray((err, docs) => {
+//                    if (err) {
+//                        // If there's an error, log it and send an error response to the client
+//                        console.log('Error retrieving data from MongoDB:', err);
+//                        res.status(500).send('Error retrieving data from MongoDB');
+//                    } else {
+//                        // If the data is retrieved successfully, send it as a JSON response to the client
+//                        res.json(docs);
+//                    }
+//                    // Close the connection to MongoDB
+//                    client.close();
+//                });
+//            }
+//        });
+//    });
 
-    // Export the router so it can be used in other modules
-    module.exports = router;
+//    // Export the router so it can be used in other modules
+//    module.exports = router;
 
-    // Filtering table script
+//    // Filtering table script
 
-    document.addEventListener("DOMContentLoaded", () => {
-        // For each search input field on the page
-        document.querySelectorAll(".search-input").forEach((inputField) => {
-            // Get the table rows associated with the search input
-            const tableRows = inputField.closest("table").querySelectorAll("tbody > tr");
-            // Get the header cell associated with the search input
-            const headerCell = inputField.closest("th");
-            // Get the other header cells in the same row as the search input
-            const otherHeaderCells = headerCell.closest("tr").children;
-            // Get the index of the header cell associated with the search input
-            const columnIndex = Array.from(otherHeaderCells).indexOf(headerCell);
+//    document.addEventListener("DOMContentLoaded", () => {
+//        // For each search input field on the page
+//        document.querySelectorAll(".search-input").forEach((inputField) => {
+//            // Get the table rows associated with the search input
+//            const tableRows = inputField.closest("table").querySelectorAll("tbody > tr");
+//            // Get the header cell associated with the search input
+//            const headerCell = inputField.closest("th");
+//            // Get the other header cells in the same row as the search input
+//            const otherHeaderCells = headerCell.closest("tr").children;
+//            // Get the index of the header cell associated with the search input
+//            const columnIndex = Array.from(otherHeaderCells).indexOf(headerCell);
 
-            // When the search input field is changed
-            inputField.addEventListener("input", () => {
-                // Get the search query entered by the user
-                const searchQuery = inputField.value.toLowerCase();
+//            // When the search input field is changed
+//            inputField.addEventListener("input", () => {
+//                // Get the search query entered by the user
+//                const searchQuery = inputField.value.toLowerCase();
 
-                // Send a GET request to the "/data" endpoint to retrieve the data for the table
-                fetch('/data')
-                    .then(response => response.json())
-                    .then(data => {
-                        // Create table rows from the data
-                        const tableBody = document.querySelector('#table-data tbody');
-                        tableBody.innerHTML = '';
-                        data.forEach(row => {
-                            const tableRow = document.createElement('tr');
-                            Object.values(row).forEach(cellValue => {
-                                const tableCell = document.createElement('td');
-                                tableCell.textContent = cellValue;
-                                tableRow.appendChild(tableCell);
-                            });
-                            tableBody.appendChild(tableRow);
-                        });
+//                // Send a GET request to the "/data" endpoint to retrieve the data for the table
+//                fetch('/data')
+//                    .then(response => response.json())
+//                    .then(data => {
+//                        // Create table rows from the data
+//                        const tableBody = document.querySelector('#table-data tbody');
+//                        tableBody.innerHTML = '';
+//                        data.forEach(row => {
+//                            const tableRow = document.createElement('tr');
+//                            Object.values(row).forEach(cellValue => {
+//                                const tableCell = document.createElement('td');
+//                                tableCell.textContent = cellValue;
+//                                tableRow.appendChild(tableCell);
+//                            });
+//                            tableBody.appendChild(tableRow);
+//                        });
 
-                        // Get the cells in the table column associated with the search input
-                        const searchableCells = data.map((row) => row.columns[columnIndex]);
+//                        // Get the cells in the table column associated with the search input
+//                        const searchableCells = data.map((row) => row.columns[columnIndex]);
 
-                        // For each cell in the table column
-                        for (const tableCell of searchableCells) {
-                            // Get the row associated with the cell
-                            const row = tableCell.closest("tr");
-                            // Get the value of the cell (as lowercase text with commas removed)
-                            const value = tableCell.text.toLowerCase().replace(",", "");
+//                        // For each cell in the table column
+//                        for (const tableCell of searchableCells) {
+//                            // Get the row associated with the cell
+//                            const row = tableCell.closest("tr");
+//                            // Get the value of the cell (as lowercase text with commas removed)
+//                            const value = tableCell.text.toLowerCase().replace(",", "");
 
-                            // Make the row visible (in case it was previously hidden)
-                            row.style.visibility = null;
+//                            // Make the row visible (in case it was previously hidden)
+//                            row.style.visibility = null;
 
-                            // If the value of the cell doesn't match the search query
-                            if (value.search(searchQuery) === -1) {
-                                // Hide the row
-                                row.style.visibility = "collapse";
-                            }
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                    });
-            }); 
+//                            // If the value of the cell doesn't match the search query
+//                            if (value.search(searchQuery) === -1) {
+//                                // Hide the row
+//                                row.style.visibility = "collapse";
+//                            }
+//                        }
+//                    })
+//                    .catch(error => {
+//                        console.error('Error:', error);
+//                    });
+//            }); 
 
-            // Show all table rows when the search input field is cleared
-            inputField.addEventListener("search", () => {
-                const tableRows = inputField.closest("table").querySelectorAll("tbody > tr");
-                for (const row of tableRows) {
-                    row.style.visibility = null;
-                }
-            });
-        });
-    });
-// End of mongoDB table functionality.
-$(document).ready(function() {
-  // Add event listener to all search inputs
-  $('.search-input').on('keyup', function() {
-    var columnIndex = $(this).data('column');
-    var searchText = $(this).val().toLowerCase();
+//            // Show all table rows when the search input field is cleared
+//            inputField.addEventListener("search", () => {
+//                const tableRows = inputField.closest("table").querySelectorAll("tbody > tr");
+//                for (const row of tableRows) {
+//                    row.style.visibility = null;
+//                }
+//            });
+//        });
+//    });
+//// End of mongoDB table functionality.
+//$(document).ready(function() {
+//  // Add event listener to all search inputs
+//  $('.search-input').on('keyup', function() {
+//    var columnIndex = $(this).data('column');
+//    var searchText = $(this).val().toLowerCase();
 
-    // Loop through each row in the table body
-    $('table#my-table tbody tr').each(function() {
-      var cellText = $(this).find('td').eq(columnIndex).text().toLowerCase();
-      var match = cellText.indexOf(searchText) !== -1;
+//    // Loop through each row in the table body
+//    $('table#my-table tbody tr').each(function() {
+//      var cellText = $(this).find('td').eq(columnIndex).text().toLowerCase();
+//      var match = cellText.indexOf(searchText) !== -1;
 
-      // Hide rows that don't match the search text
-      $(this).toggle(match);
-    });
-  });
-});
-
-
+//      // Hide rows that don't match the search text
+//      $(this).toggle(match);
+//    });
+//  });
+//});
 
 
-document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll(".search-input").forEach((inputField) => {
-      const tableRows = inputField
-        .closest("table")
-        .querySelectorAll("tbody > tr");
-      const headerCell = inputField.closest("th");
-      const otherHeaderCells = headerCell.closest("tr").children;
-      const columnIndex = Array.from(otherHeaderCells).indexOf(headerCell);
-      const searchableCells = Array.from(tableRows).map(
-        (row) => row.querySelectorAll("td")[columnIndex]
-      );
+
+
+//document.addEventListener("DOMContentLoaded", () => {
+//    document.querySelectorAll(".search-input").forEach((inputField) => {
+//      const tableRows = inputField
+//        .closest("table")
+//        .querySelectorAll("tbody > tr");
+//      const headerCell = inputField.closest("th");
+//      const otherHeaderCells = headerCell.closest("tr").children;
+//      const columnIndex = Array.from(otherHeaderCells).indexOf(headerCell);
+//      const searchableCells = Array.from(tableRows).map(
+//        (row) => row.querySelectorAll("td")[columnIndex]
+//      );
   
-      inputField.addEventListener("input", () => {
-        const searchQuery = inputField.value.toLowerCase();
+//      inputField.addEventListener("input", () => {
+//        const searchQuery = inputField.value.toLowerCase();
   
-        for (const tableCell of searchableCells) {
-          const row = tableCell.closest("tr");
-          const value = tableCell.textContent.toLowerCase().replace(",", "");
+//        for (const tableCell of searchableCells) {
+//          const row = tableCell.closest("tr");
+//          const value = tableCell.textContent.toLowerCase().replace(",", "");
   
-          row.style.visibility = null;
+//          row.style.visibility = null;
   
-          if (value.search(searchQuery) === -1) {
-            row.style.visibility = "collapse";
-          }
-        }
-      });
-    });
-  });
+//          if (value.search(searchQuery) === -1) {
+//            row.style.visibility = "collapse";
+//          }
+//        }
+//      });
+//    });
+//  });
 
 
- // Get the search input fields
-const searchInputs = document.querySelectorAll('.search-input');
+// // Get the search input fields
+//const searchInputs = document.querySelectorAll('.search-input');
 
-// Attach event listeners to the search input fields
-searchInputs.forEach((input) => {
-  input.addEventListener('input', () => {
-    const searchTerm = input.value.trim().toLowerCase();
-    const column = input.dataset.column;
-    const tableRows = document.querySelectorAll('#my-table tbody tr');
+//// Attach event listeners to the search input fields
+//searchInputs.forEach((input) => {
+//  input.addEventListener('input', () => {
+//    const searchTerm = input.value.trim().toLowerCase();
+//    const column = input.dataset.column;
+//    const tableRows = document.querySelectorAll('#my-table tbody tr');
     
-    // Filter table rows based on the search term and column
-    tableRows.forEach((row) => {
-      const cellValue = row.querySelector(`td[data-column="${column}"]`).textContent.trim().toLowerCase();
-      if (cellValue.includes(searchTerm)) {
-        row.style.display = '';
-      } else {
-        row.style.display = 'none';
-      }
-    });
-  });
-});
-*/
-// End of table MongoDB functionality.
-
+//    // Filter table rows based on the search term and column
+//    tableRows.forEach((row) => {
+//      const cellValue = row.querySelector(`td[data-column="${column}"]`).textContent.trim().toLowerCase();
+//      if (cellValue.includes(searchTerm)) {
+//        row.style.display = '';
+//      } else {
+//        row.style.display = 'none';
+//      }
+//    });
+//  });
+//});
+//*/
+//// End of table MongoDB functionality.
 // Filtering for Table Start.
 $(document).ready(function () {
-    // Add event listener to all search inputs
-    $('.search-input').on('keyup', function () {
-        var columnIndex = $(this).data('column');
-        var searchText = $(this).val().toLowerCase();
+//    // add event listener to all search inputs
+  $('.search-input').on('keyup', function () {
+      var columnindex = $(this).data('column');
+    var searchtext = $(this).val().tolowercase();
 
-        // Loop through each row in the table body
-        $('table#my-table tbody tr').each(function () {
-            var cellText = $(this).find('td').eq(columnIndex).text().toLowerCase();
-            var match = cellText.indexOf(searchText) !== -1;
+      // loop through each row in the table body
+       $('table#my-table tbody tr').each(function () {
+           var celltext = $(this).find('td').eq(columnindex).text().tolowercase();
+         var match = celltext.indexof(searchtext) !== -1;
 
-            // Hide rows that don't match the search text
-            $(this).toggle(match);
-        });
-    });
+// hide rows that don't match the search text
+          $(this).toggle(match);
+     });
+ });
 });
 // Filtering for table list end.
 
