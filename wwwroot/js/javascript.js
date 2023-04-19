@@ -25,10 +25,10 @@ searchInputs.forEach(input => {
         // Get the value of the input and its ID
         const value = event.target.value;
         const id = event.target.id;
-        var firstName = getElementById(firstName)
-        var surName = getElementById(surName)
-        var education = getElementById(education)
-        var selfDescription = getElementById(selfDescription)
+        var firstName = document.getElementById(firstName)
+        var surName = document.getElementById(surName)
+        var education = document.getElementById(education)
+        var selfDescription = document.getElementById(selfDescription)
         console.log(firstName, surName, education, selfDescription)
         console.log(`Search term: ${value}, Input ID: ${id}`);
     });
