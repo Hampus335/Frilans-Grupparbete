@@ -47,6 +47,9 @@ searchInputs.forEach(input => {
 //    });
 //}
 
+    });
+}
+
 
 //Modal Start JavaScript.
   var modal = document.getElementById('id01');

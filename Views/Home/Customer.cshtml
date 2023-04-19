@@ -12,8 +12,8 @@
     <img src="~/images/menu.png" class="menu-icon">
 </div>
 
-
-<form action="/SearchCV" method="get">
+ 
+<form action="/SearchCV" method="post">
     <title>My Table</title>
     <table id="my-table">
         <thead>
@@ -24,19 +24,23 @@
                 <th>Självbeskrivning</th>
             </tr>
             <tr>
-                    <th><input type="text" class="search-input" data-column="0" placeholder="Förnamn"></th>
-                    <th><input type="text" class="search-input" data-column="1" placeholder="Efternamn">  </th>
-                    <th><input type="text" class="search-input" data-column="2" placeholder="Utbildning"></th>
-                    <th><input type="text" class="search-input" data-column="3" placeholder="Självbeskrivning."></th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Table rows will be added dynamically with JavaScript -->
-                <tr>
-                    <td>John</td>
-                    <td>Doe</td>
-                    <td>Bachelor's in Computer Science</td>
-                    <td>I'm a passionate programmer with experience in web development.</td>
+                <th><input type="text" class="search-input" data-column="0" name="firstName" placeholder="Förnamn"></th>
+                <th><input type="text" class="search-input" data-column="1" name="surName" placeholder="Efternamn">  </th>
+                <th><input type="text" class="search-input" data-column="2" name="education" placeholder="Utbildning"></th>
+                <th><input type="text" class="search-input" data-column="3" name="selfDescription" placeholder="Självbeskrivning"></th>
+            </tr> 
+        </thead>
+        <input type="submit" value="submit">
+
+        </form>
+        <form action="/SearchCV" method="get">
+        <tbody>
+            <!-- Table rows will be added dynamically with JavaScript -->
+            <tr>
+                <td>John</td>
+                <td>Doe</td>
+                <td>Bachelor's in Computer Science</td>
+                <td>I'm a passionate programmer with experience in web development.</td>
 
                 </tr>
                 <tr>
@@ -46,11 +50,9 @@
                     <td>I'm  passionate in the arts and making the best designs</td>
                 </tr>
       
-            </tbody>
-        </table>
-        <input type="submit" value="submit">
-
-    </form>
+        </tbody>
+    </table>
+</form>
 
 <!--<table id="my-table" class="table">
     <thead>
