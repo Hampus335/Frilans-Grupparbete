@@ -47,8 +47,8 @@ searchInputs.forEach(input => {
 //    });
 //}
 
-    });
-}
+    
+
 
 
 //Modal Start JavaScript.
