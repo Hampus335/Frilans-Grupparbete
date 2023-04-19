@@ -35,30 +35,34 @@ searchInputs.forEach(input => {
 });
 */
 
-// Create a new XMLHttpRequest object
-var xhr = new XMLHttpRequest();
+const searchInputs = document.querySelectorAll('.search-input');
 
-// Set the HTTP method to GET and the endpoint URL
-xhr.open("GET", "/SearchCV");
+// Add an event listener to each search input
+searchInputs.forEach(input => {
+    input.addEventListener('keyup', event => {
+        // Get the form data
+        const formData = new FormData(event.target.form);
 
-// Set the content type of the request header
-xhr.setRequestHeader("Content-Type", "application/json");
+        // Convert form data to JSON
+        const searchData = {};
+        formData.forEach((value, key) => searchData[key] = value);
+        const jsonData = JSON.stringify(searchData);
 
-// Define the callback function to be executed when the request is complete
-xhr.onload = function () {
-    if (xhr.status === 200) {
-        // Parse the JSON response
-        var response = JSON.parse(xhr.responseText);
+        // Send a GET request to the server with the search data
+        const xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                // Parse the JSON response
+                const response = JSON.parse(xhr.responseText);
+                console.log(response);
+            }
+        };
+        const url = `/SearchCV?firstName=${searchData.firstName}&surName=${searchData.surName}&education=${searchData.education}&selfDescription=${searchData.selfDescription}`;
+        xhr.open("GET", url);
+        xhr.send();
+    });
+});
 
-        // Do something with the response data
-        console.log(response);
-    } else {
-        // Handle errors here
-        console.error("Request failed with status:", xhr.status);
-    }
-};
-
-// Send the request
 xhr.send();
 
     
