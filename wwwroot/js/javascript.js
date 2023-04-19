@@ -17,7 +17,7 @@ function submitForm() {
 };
 
 
-
+//Start of MongoDB table functionality.
    const router = require('express').Router();
 const MongoClient = require('mongodb').MongoClient;
 
@@ -162,6 +162,22 @@ module.exports = router;
         });
     });
 // End of mongoDB table functionality.
+$(document).ready(function() {
+  // Add event listener to all search inputs
+  $('.search-input').on('keyup', function() {
+    var columnIndex = $(this).data('column');
+    var searchText = $(this).val().toLowerCase();
+
+    // Loop through each row in the table body
+    $('table#my-table tbody tr').each(function() {
+      var cellText = $(this).find('td').eq(columnIndex).text().toLowerCase();
+      var match = cellText.indexOf(searchText) !== -1;
+
+      // Hide rows that don't match the search text
+      $(this).toggle(match);
+    });
+  });
+});
 
 
 
@@ -218,10 +234,28 @@ searchInputs.forEach((input) => {
   });
 });
 */
+// End of table MongoDB functionality.
 
+// Filtering for Table Start.
+$(document).ready(function () {
+    // Add event listener to all search inputs
+    $('.search-input').on('keyup', function () {
+        var columnIndex = $(this).data('column');
+        var searchText = $(this).val().toLowerCase();
 
+        // Loop through each row in the table body
+        $('table#my-table tbody tr').each(function () {
+            var cellText = $(this).find('td').eq(columnIndex).text().toLowerCase();
+            var match = cellText.indexOf(searchText) !== -1;
 
+            // Hide rows that don't match the search text
+            $(this).toggle(match);
+        });
+    });
+});
+// Filtering for table list end.
 
+//Modal Start JavaScript.
   var modal = document.getElementById('id01');
 
 // When the user clicks anywhere outside of the modal, close it
@@ -239,8 +273,9 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
+//Modal JS end.
 
-
+// Kompetens JS Start.
   const competenceEl = document.getElementById("kompetens");
   const technologiesEl = document.getElementById("teknologier");
   const chosenTechnologiesEl = document.getElementById("valda-teknologier");
@@ -292,14 +327,14 @@ const technologies = {
   // Add event handlers for when the user selects a competence and when a technology is added.
   competenceEl.addEventListener("change", updateTechnologies);
   technologiesEl.addEventListener("change", addTechnology);
-  
-
-
- 
+  // Kompetens JS end.
 
 
 
-/*
+
+
+
+
 const form = document.querySelector('#myForm');
 const nameInput = document.querySelector('#name');
 const lastNameInput = document.querySelector('#lastname');
@@ -380,6 +415,8 @@ form.addEventListener('submit', (event) => {
         alert('Välj en kompetens.');
         return;
     }
+
+    competenceEl.dispatchEvent(new Event('change'));
 
     // Check that at least one technology is selected
     if (selectedTechnologies.options.length === 0) {
