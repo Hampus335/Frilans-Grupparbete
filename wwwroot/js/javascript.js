@@ -17,7 +17,7 @@ function submitForm() {
 };
 
 // Get the search inputs
-1
+
 /* Add an event listener to each search input           
 searchInputs.forEach(input => {
     input.addEventListener('keyup', event => {
@@ -34,7 +34,41 @@ searchInputs.forEach(input => {
 });
 */
 
+// Add an event listener to each search input
+$('.search-input').on('keypress', function (event) {
+    if (event.key === 'Enter') {
+        // Prevent the form from submitting
+        event.preventDefault();
 
+        // Get the search parameters
+        const firstName = $('#firstName').val();
+        const surName = $('#surName').val();
+        const education = $('#education').val();
+        const selfDescription = $('#selfdescription').val();
+
+        // Send a POST request to the server with the search data
+        $.ajax({
+            type: "POST",
+            url: "/SearchCV",
+            data: {
+                firstName: firstName,
+                surName: surName,
+                education: education,
+                selfDescription: selfDescription
+            },
+            success: function (response) {
+                // Handle the response from the server
+                const bsonParser = new BSON();
+                const parsedResponse = bsonParser.deserialize(response);
+                console.log(parsedResponse);
+            },
+            dataType: "bson"
+        });
+    }
+});
+
+
+/*
 const searchInputs = document.querySelectorAll('.search-input');
 
 // Add an event listener to each search input
@@ -67,7 +101,7 @@ searchInputs.forEach(input => {
         }
     });
 });
-
+*/
 
 //// Add event listener to all search inputs
 //for (var i = 0; i < searchInputs.length; i++) {
