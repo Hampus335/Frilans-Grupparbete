@@ -34,37 +34,51 @@ searchInputs.forEach(input => {
 });
 */
 
-/*
 const searchInputs = document.querySelectorAll('.search-input');
 
 // Add an event listener to each search input
 searchInputs.forEach(input => {
-    input.addEventListener('keyup', event => {
-        // Get the form data
-        const formData = new FormData(event.target.form);
+    input.addEventListener('keypress', event => {
+        if (event.key === 'Enter') {
+            // Prevent the form from submitting
+            event.preventDefault();
 
-        // Convert form data to JSON
-        const searchData = {};
-        formData.forEach((value, key) => searchData[key] = value);
-        const jsonData = JSON.stringify(searchData);
+            // Get the form data
+            const formData = new FormData(event.target.form);
 
-        // Send a GET request to the server with the search data
-        const xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                // Parse the JSON response
-                const response = JSON.parse(xhr.responseText);
-                console.log(response);
-            }
-        };
-        const url = `/SearchCV?firstName=${searchData.firstName}&surName=${searchData.surName}&education=${searchData.education}&selfDescription=${searchData.selfDescription}`;
-        console.log(url)
-        xhr.open("GET", url);
-        xhr.send();
+            // Convert form data to JSON
+            const searchData = {};
+            formData.forEach((value, key) => searchData[key] = value);
+            const jsonData = JSON.stringify(searchData);
+
+            // Send a GET request to the server with the search data
+            const xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    // Get the response as a Blob object
+                    const response = xhr.response;
+
+                    // Convert the Blob to an ArrayBuffer
+                    const reader = new FileReader();
+                    reader.onload = function () {
+                        const arrayBuffer = reader.result;
+
+                        // Parse the BSON data
+                        const data = BSON.deserialize(arrayBuffer);
+                        console.log(data);
+                    }
+                    reader.readAsArrayBuffer(response);
+                }
+            };
+            const url = `/SearchCV?firstName=${searchData.firstName}&surName=${searchData.surName}&education=${searchData.education}&selfDescription=${searchData.selfDescription}`;
+            xhr.open("GET", url);
+            xhr.responseType = 'blob';
+            xhr.send();
+        }
     });
 });
-*/
 
+/*
 const searchInputs = document.querySelectorAll('.search-input');
 
 // Add an event listener to each search input
@@ -97,7 +111,7 @@ searchInputs.forEach(input => {
         }
     });
 });
-
+*/
 
 //// Add event listener to all search inputs
 //for (var i = 0; i < searchInputs.length; i++) {
