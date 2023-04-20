@@ -77,7 +77,7 @@ namespace Frilansare.Controllers
         {
             string connectionString = "mongodb://127.0.0.1:27017";
             string databaseName = "CVs";
-            string collectionName = "applicants";
+            string collectionName = "people";
 
             var client = new MongoClient(connectionString);
             var database = client.GetDatabase(databaseName);
@@ -88,27 +88,27 @@ namespace Frilansare.Controllers
 
             if (!string.IsNullOrWhiteSpace(firstName))
             {
-                filters.Add(filterBuilder.Regex("FirstName", new BsonRegularExpression(firstName)));
+                filters.Add(filterBuilder.Regex("FirstName", new BsonRegularExpression(firstName, "i")));
             }
 
             if (!string.IsNullOrWhiteSpace(surName))
             {
-                filters.Add(filterBuilder.Regex("SurName", new BsonRegularExpression(surName)));
+                filters.Add(filterBuilder.Regex("SurName", new BsonRegularExpression(surName, "i")));
             }
 
             if (!string.IsNullOrWhiteSpace(education))
             {
-                filters.Add(filterBuilder.Regex("Education", new BsonRegularExpression(education)));
+                filters.Add(filterBuilder.Regex("Education", new BsonRegularExpression(education, "i")));
             }
 
             if (!string.IsNullOrWhiteSpace(selfDescription))
             {
-                filters.Add(filterBuilder.Regex("SelfDescription", new BsonRegularExpression(selfDescription)));
+                filters.Add(filterBuilder.Regex("SelfDescription", new BsonRegularExpression(selfDescription, "i")));
             }
-            var filter = filterBuilder.And(filters);
-            var results = collection.Find(filter).ToList();     
-
-            return View(results);
+                var filter = filters.Count > 0 ? filterBuilder.And(filters) : null;
+                var results = filter != null ? collection.Find(filter).ToList() : collection.Find(_ => true).ToList();
+            return Ok(results);
+            //return View(results);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
