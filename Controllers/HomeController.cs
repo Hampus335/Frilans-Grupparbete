@@ -105,10 +105,10 @@ namespace Frilansare.Controllers
             {
                 filters.Add(filterBuilder.Regex("SelfDescription", new BsonRegularExpression(selfDescription, "i")));
             }
-                var filter = filters.Count > 0 ? filterBuilder.And(filters) : null;
-                var results = filter != null ? collection.Find(filter).ToList() : collection.Find(_ => true).ToList();
+            var filter = filters.Count > 0 ? filterBuilder.And(filters) : null;
+            var results = filter != null ? collection.Find(filter).ToList() : collection.Find(_ => true).ToList();
+
             return Ok(results);
-            //return View(results);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
@@ -117,4 +117,4 @@ namespace Frilansare.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
-}
+}   

@@ -18,7 +18,7 @@ function submitForm() {
 
 // Get the search inputs
 1
-/* Add an event listener to each search input
+/* Add an event listener to each search input           
 searchInputs.forEach(input => {
     input.addEventListener('keyup', event => {
         // Get the value of the input and its ID
