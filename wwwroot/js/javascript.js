@@ -64,7 +64,6 @@ searchInputs.forEach(input => {
 });
 
 
-
     
 
 //// Add event listener to all search inputs
