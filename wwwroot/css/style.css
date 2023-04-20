@@ -102,28 +102,42 @@ h1{
 
 
 /*Start of Customer page search table*/
-.table{
-  font-family: 'Courier New', Courier, monospace;
-  border-collapse: collapse;
+.table-style {
+    font-family: 'Courier New', Courier, monospace;
+    border-collapse: separate;
+    border-spacing: 10px;
+    background-color: #f9f9f9;
+    padding: 20px;
 }
 
-.table th {
-  text-align: left;
-  border-top: 2px solid #009578;
-  border-bottom: 2px solid #009578 ;
+    .table-style th {
+        text-align: left;
+        border-top: 2px solid #009578;
+        border-bottom: 2px solid #009578;
+        color: #333;
+        background-color: #ccc;
+    }
+
+    .table-style td,
+    .table-style .search-input {
+        font-size: 1em;
+        padding: 0.6em 1em;
+        border: 1px solid #666;
+        color: #333;
+    }
+
+    .table-style tr:hover {
+        background-color: #e6e6e6;
+    }
+
+@media screen and (max-width: 768px) {
+    .table-style {
+        font-size: 0.8em;
+        border-spacing: 5px;
+        padding: 10px;
+    }
 }
 
-.table td,
-.search-input {
-  font-size: 1em;
-  padding: 0.6em 1em;
-}
-
-.search-input {
- border: none;
- outline: none;
- font-family: 'Courier New', Courier, monospace;
-}
 /*End of customer page, table search*/
 
 .sortable-list {

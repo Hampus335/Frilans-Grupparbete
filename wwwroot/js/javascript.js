@@ -57,13 +57,12 @@ searchInputs.forEach(input => {
                 console.log(response);
             }
         };
-        const url = `/SearchCV?firstName=${searchData.firstName}&surName=${searchData.surName}&education=${searchData.education}&selfDescription=${searchData.selfDescription}`;
+        const url =  `/SearchCV?firstName=${searchData.firstName}&surName=${searchData.surName}&education=${searchData.education}&selfDescription=${searchData.selfDescription}`;
         xhr.open("GET", url);
         xhr.send();
     });
 });
 
-xhr.send();
 
     
 
