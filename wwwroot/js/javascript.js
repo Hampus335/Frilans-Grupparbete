@@ -34,6 +34,7 @@ searchInputs.forEach(input => {
 });
 */
 
+/*
 const searchInputs = document.querySelectorAll('.search-input');
 
 // Add an event listener to each search input
@@ -62,9 +63,41 @@ searchInputs.forEach(input => {
         xhr.send();
     });
 });
+*/
 
+const searchInputs = document.querySelectorAll('.search-input');
 
-    
+// Add an event listener to each search input
+searchInputs.forEach(input => {
+    input.addEventListener('keypress', event => {
+        if (event.key === 'Enter') {
+            // Prevent the form from submitting
+            event.preventDefault();
+
+            // Get the form data
+            const formData = new FormData(event.target.form);
+
+            // Convert form data to JSON
+            const searchData = {};
+            formData.forEach((value, key) => searchData[key] = value);
+            const jsonData = JSON.stringify(searchData);
+
+            // Send a GET request to the server with the search data
+            const xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    // Parse the JSON response
+                    const response = JSON.parse(xhr.responseText);
+                    console.log(response);
+                }
+            };
+            const url = `/SearchCV?firstName=${searchData.firstName}&surName=${searchData.surName}&education=${searchData.education}&selfDescription=${searchData.selfDescription}`;
+            xhr.open("GET", url);
+            xhr.send();
+        }
+    });
+});
+
 
 //// Add event listener to all search inputs
 //for (var i = 0; i < searchInputs.length; i++) {
