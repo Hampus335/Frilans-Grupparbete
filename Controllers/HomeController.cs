@@ -108,7 +108,7 @@ namespace Frilansare.Controllers
             var filter = filters.Count > 0 ? filterBuilder.And(filters) : null;
             var results = filter != null ? collection.Find(filter).ToList() : collection.Find(_ => true).ToList();
 
-            return Ok(results);
+            return Ok(results.ToJson());
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
