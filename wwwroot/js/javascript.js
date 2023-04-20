@@ -17,8 +17,7 @@ function submitForm() {
 };
 
 // Get the search inputs
-const searchInputs = document.querySelectorAll('.search-input');
-
+1
 /* Add an event listener to each search input
 searchInputs.forEach(input => {
     input.addEventListener('keyup', event => {
@@ -58,12 +57,13 @@ searchInputs.forEach(input => {
             }
         };
         const url = `/SearchCV?firstName=${searchData.firstName}&surName=${searchData.surName}&education=${searchData.education}&selfDescription=${searchData.selfDescription}`;
+        console.log(url)
         xhr.open("GET", url);
         xhr.send();
     });
 });
 
-xhr.send();
+
 
     
 
