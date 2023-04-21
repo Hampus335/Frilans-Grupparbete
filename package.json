@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "bson": "^5.2.0"
+    "bson": "^5.2.0",
+    "jquery": "^3.6.4"
   }
 }
