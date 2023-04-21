@@ -96,7 +96,7 @@ namespace Frilansare.Controllers
             {
                 filters.Add(filterBuilder.Regex("SurName", new BsonRegularExpression(surName, "i")));
             }
-
+             
             if (!string.IsNullOrWhiteSpace(education))
             {
                 filters.Add(filterBuilder.Regex("Education", new BsonRegularExpression(education, "i")));
