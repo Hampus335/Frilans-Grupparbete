@@ -199,114 +199,114 @@ const technologies = {
 
 
 
-const form = document.querySelector('#myForm');
-const nameInput = document.querySelector('#name');
-const lastNameInput = document.querySelector('#lastname');
-const ageInput = document.querySelector('#birthdayftime');
-const emailInput = document.querySelector('#email-contact');
-const phoneInput = document.querySelector('#phoneNumber');
-const educationInput = document.querySelector('#education');
-const nationalityInput = document.querySelector('#nationality');
-const countryInput = document.querySelector('#country');
-const driversLicenseInput = document.querySelector('#driversLicense');
-const competenceInput = document.querySelector('#kompetens');
-const technologiesInput = document.querySelector('#teknologier');
-const selectedTechnologiesInput = document.querySelector('#valda-teknologier');
-const languageInput = document.querySelector('#language');
-const selfDescriptionInput = document.querySelector('#description');
-const addressInput = document.querySelector('#address');
-const submitButton = document.querySelector('#submitButton');
+//const form = document.querySelector('#myForm');
+//const nameInput = document.querySelector('#name');
+//const lastNameInput = document.querySelector('#lastname');
+//const ageInput = document.querySelector('#birthdayftime');
+//const emailInput = document.querySelector('#email-contact');
+//const phoneInput = document.querySelector('#phoneNumber');
+//const educationInput = document.querySelector('#education');
+//const nationalityInput = document.querySelector('#nationality');
+//const countryInput = document.querySelector('#country');
+//const driversLicenseInput = document.querySelector('#driversLicense');
+//const competenceInput = document.querySelector('#kompetens');
+//const technologiesInput = document.querySelector('#teknologier');
+//const selectedTechnologiesInput = document.querySelector('#valda-teknologier');
+//const languageInput = document.querySelector('#language');
+//const selfDescriptionInput = document.querySelector('#description');
+//const addressInput = document.querySelector('#address');
+//const submitButton = document.querySelector('#submitButton');
 
-form.addEventListener('submit', (event) => {
-    event.preventDefault();
+//form.addEventListener('submit', (event) => {
+//    event.preventDefault();
 
-    // Check that name is not empty and contains only letters
-    if (nameInput.value.trim() === '' || !/^[a-zA-Z]+$/.test(nameInput.value)) {
-        alert('Förnamn är ogiltigt.');
-        return;
-    }
+//    // Check that name is not empty and contains only letters
+//    if (nameInput.value.trim() === '' || !/^[a-zA-Z]+$/.test(nameInput.value)) {
+//        alert('Förnamn är ogiltigt.');
+//        return;
+//    }
 
-    // Check that lastName is not empty and contains only letters
-    if (lastNameInput.value.trim() === '' || !/^[a-zA-Z]+$/.test(lastNameInput.value)) {
-        alert('Efternamn är ogiltigt.');
-        return;
-    }
+//    // Check that lastName is not empty and contains only letters
+//    if (lastNameInput.value.trim() === '' || !/^[a-zA-Z]+$/.test(lastNameInput.value)) {
+//        alert('Efternamn är ogiltigt.');
+//        return;
+//    }
 
-    // Check that age is not empty
-    if (ageInput.value.trim() === '') {
-        alert('Ålder är ogiltigt.');
-        return;
-    }
+//    // Check that age is not empty
+//    if (ageInput.value.trim() === '') {
+//        alert('Ålder är ogiltigt.'); 
+//        return;
+//    }
 
-    // Check that email is a valid email address
-    if (emailInput.value.trim() === '' || !/\S+@\S+\.\S+/.test(emailInput.value)) {
-        alert('E-mail address är ogiltigt.');
-        return;
-    }
+//    // Check that email is a valid email address
+//    if (emailInput.value.trim() === '' || !/\S+@\S+\.\S+/.test(emailInput.value)) {
+//        alert('E-mail address är ogiltigt.');
+//        return;
+//    }
 
-    // Check that phone is a valid phone number
-    if (phoneInput.value.trim() === '' || !/^\d{10}$/.test(phoneInput.value)) {
-        alert('Telefonnummer är ogiltigt.');
-        return;
-    }
+//    // Check that phone is a valid phone number
+//    if (phoneInput.value.trim() === '' || !/^\d{10}$/.test(phoneInput.value)) {
+//        alert('Telefonnummer är ogiltigt.');
+//        return;
+//    }
 
-    // Check that education is not empty
-    if (educationInput.value.trim() === '') {
-        alert('Utbildning är ogiltigt.');
-        return;
-    }
+//    // Check that education is not empty
+//    if (educationInput.value.trim() === '') {
+//        alert('Utbildning är ogiltigt.');
+//        return;
+//    }
 
-    // Check that nationality is not empty
-    if (nationalityInput.value.trim() === '') {
-        alert('Nationalitet är ogiltigt.');
-        return;
-    }
+//    // Check that nationality is not empty
+//    if (nationalityInput.value.trim() === '') {
+//        alert('Nationalitet är ogiltigt.');
+//        return;
+//    }
 
-    // Check that country is not empty
-    if (countryInput.value.trim() === '') {
-        alert('Land är ogiltigt.');
-        return;
-    }
+//    // Check that country is not empty
+//    if (countryInput.value.trim() === '') {
+//        alert('Land är ogiltigt.');
+//        return;
+//    }
 
-    // Check that driversLicense is a valid file type
-    if (!/\.(jpe?g|png)$/i.test(driversLicenseInput.value)) {
-        alert('Körkortsbild är ogiltig.');
-        return;
-    }
+//    // Check that driversLicense is a valid file type
+//    if (!/\.(jpe?g|png)$/i.test(driversLicenseInput.value)) {
+//        alert('Körkortsbild är ogiltig.');
+//        return;
+//    }
 
-    // Check that competence is selected
-    if (competenceInput.value === '') {
-        alert('Välj en kompetens.');
-        return;
-    }
+//    // Check that competence is selected
+//    if (competenceInput.value === '') {
+//        alert('Välj en kompetens.');
+//        return;
+//    }
 
-    competenceEl.dispatchEvent(new Event('change'));
+//    competenceEl.dispatchEvent(new Event('change'));
 
-    // Check that at least one technology is selected
-    if (selectedTechnologies.options.length === 0) {
-        alert('Välj minst en teknologi.');
-        return;
-    }
+//    // Check that at least one technology is selected
+//    if (selectedTechnologies.options.length === 0) {
+//        alert('Välj minst en teknologi.');
+//        return;
+//    }
 
-    // Check that language is not empty
-    if (language.value.trim() === '') {
-        alert('Språk är ogiltigt.');
-        return;
-    }
+//    // Check that language is not empty
+//    if (language.value.trim() === '') {
+//        alert('Språk är ogiltigt.');
+//        return;
+//    }
 
-    // Check that selfDescription is not empty and contains at least 50 characters
-    if (selfDescription.value.trim() === '' || selfDescription.value.trim().length < 50) {
-        alert('Självbeskrivning måste innehålla minst 50 tecken.');
-        return;
-    }
+//    // Check that selfDescription is not empty and contains at least 50 characters
+//    if (selfDescription.value.trim() === '' || selfDescription.value.trim().length < 50) {
+//        alert('Självbeskrivning måste innehålla minst 50 tecken.');
+//        return;
+//    }
 
-    // Check if the address field is empty
-    if (address.value.trim() === '') {
-        alert('Please enter your address.');
-        return;
-    }
+//    // Check if the address field is empty
+//    if (address.value.trim() === '') {
+//        alert('Please enter your address.');
+//        return;
+//    }
 
-    // Submit the form if all validation passes
-    form.submit();
-});
+//    // Submit the form if all validation passes
+//    form.submit();
+//});
 
