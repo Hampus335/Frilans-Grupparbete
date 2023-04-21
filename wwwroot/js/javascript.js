@@ -46,9 +46,9 @@ $('.search-input').on('keypress', function (event) {
         const education = $('#education').val();
         const selfDescription = $('#selfdescription').val();
 
-        // Send a POST request to the server with the search data
+        // Send a GET request to the server with the search data
         $.ajax({
-            type: "POST",
+            type: "GET",
             url: "/SearchCV",
             data: {
                 firstName: firstName,
