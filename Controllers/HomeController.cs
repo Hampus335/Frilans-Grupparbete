@@ -5,6 +5,7 @@ using MongoDB.Driver.Core.Configuration;
 using MongoDB.Driver;
 using System.Diagnostics;
 using MongoDB.Bson;
+using MongoDB.Bson.Serialization;
 
 namespace Frilansare.Controllers
 {
@@ -66,7 +67,7 @@ namespace Frilansare.Controllers
             person.Competences = competences;
             person.Language = language;
             person.SelfDescription = selfDescription;
-            person.Address = address;
+            person.Adress = address;
 
             await backend.CreateDatabaseAndSavePersonAsync(person);
             return Redirect("/");
@@ -107,8 +108,10 @@ namespace Frilansare.Controllers
             }
             var filter = filters.Count > 0 ? filterBuilder.And(filters) : null;
             var results = filter != null ? collection.Find(filter).ToList() : collection.Find(_ => true).ToList();
+       
+            var people = results.Select(r => BsonSerializer.Deserialize<Person>(r)).ToList();
 
-            return Ok(results.ToJson());
+            return Ok(people);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
