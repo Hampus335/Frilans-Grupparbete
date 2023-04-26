@@ -55,6 +55,7 @@ namespace Frilansare.Controllers
             
             Backend backend = new Backend();
             Person person = new Person();
+            person.Id = new ObjectId();
             person.FirstName = firstName;
             person.SurName = surName;
             person.Age = age;
@@ -82,10 +83,10 @@ namespace Frilansare.Controllers
 
             var client = new MongoClient(connectionString);
             var database = client.GetDatabase(databaseName);
-            var collection = database.GetCollection<BsonDocument>(collectionName);
+            var collection = database.GetCollection<Person>(collectionName);
 
-            var filterBuilder = Builders<BsonDocument>.Filter;
-            var filters = new List<FilterDefinition<BsonDocument>>();
+            var filterBuilder = Builders<Person>.Filter;
+            var filters = new List<FilterDefinition<Person>>(); 
 
             if (!string.IsNullOrWhiteSpace(firstName))
             {
@@ -109,9 +110,7 @@ namespace Frilansare.Controllers
             var filter = filters.Count > 0 ? filterBuilder.And(filters) : null;
             var results = filter != null ? collection.Find(filter).ToList() : collection.Find(_ => true).ToList();
        
-            var people = results.Select(r => BsonSerializer.Deserialize<Person>(r)).ToList();
-
-            return Ok(people);
+            return Ok(results);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
