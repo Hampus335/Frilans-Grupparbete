@@ -198,115 +198,94 @@ const technologies = {
 
 
 
+/* validation commented out for testing.
+const form = document.getElementById('myForm');
+const nameInput = document.getElementById('name');
+const surnameInput = document.getElementById('lastname');
+const birthdayInput = document.getElementById('birthdayftime');
+const emailInput = document.getElementById('email-contact');
+const phoneNumberInput = document.getElementById('phoneNumber');
+const educationInput = document.getElementById('education');
+const nationalityInput = document.getElementById('nationality');
+const countryInput = document.getElementById('country');
+const driverLicenseInput = document.getElementsByName('driversLicense');
+const competenceSelect = document.getElementById('kompetens');
+const technologySelect = document.getElementById('teknologier');
+const chosenTechnologySelect = document.getElementById('valda-teknologier');
+const languageInput = document.getElementById('language');
+const selfDescriptionInput = document.getElementById('description');
+const addressInput = document.getElementById('address');
 
-//const form = document.querySelector('#myForm');
-//const nameInput = document.querySelector('#name');
-//const lastNameInput = document.querySelector('#lastname');
-//const ageInput = document.querySelector('#birthdayftime');
-//const emailInput = document.querySelector('#email-contact');
-//const phoneInput = document.querySelector('#phoneNumber');
-//const educationInput = document.querySelector('#education');
-//const nationalityInput = document.querySelector('#nationality');
-//const countryInput = document.querySelector('#country');
-//const driversLicenseInput = document.querySelector('#driversLicense');
-//const competenceInput = document.querySelector('#kompetens');
-//const technologiesInput = document.querySelector('#teknologier');
-//const selectedTechnologiesInput = document.querySelector('#valda-teknologier');
-//const languageInput = document.querySelector('#language');
-//const selfDescriptionInput = document.querySelector('#description');
-//const addressInput = document.querySelector('#address');
-//const submitButton = document.querySelector('#submitButton');
 
-//form.addEventListener('submit', (event) => {
-//    event.preventDefault();
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-//    // Check that name is not empty and contains only letters
-//    if (nameInput.value.trim() === '' || !/^[a-zA-Z]+$/.test(nameInput.value)) {
-//        alert('Förnamn är ogiltigt.');
-//        return;
-//    }
+    $(document).ready(function() {
+        $("#myForm").submit(function(event) {
+            let messages = [];
 
-//    // Check that lastName is not empty and contains only letters
-//    if (lastNameInput.value.trim() === '' || !/^[a-zA-Z]+$/.test(lastNameInput.value)) {
-//        alert('Efternamn är ogiltigt.');
-//        return;
-//    }
+            if ($("#name").val() === "") {
+                messages.push("Förnamn är obligatoriskt");
+            }
 
-//    // Check that age is not empty
-//    if (ageInput.value.trim() === '') {
-//        alert('Ålder är ogiltigt.'); 
-//        return;
-//    }
+            if ($("#lastname").val() === "") {
+                messages.push("Efternamn är obligatoriskt");
+            }
 
-//    // Check that email is a valid email address
-//    if (emailInput.value.trim() === '' || !/\S+@\S+\.\S+/.test(emailInput.value)) {
-//        alert('E-mail address är ogiltigt.');
-//        return;
-//    }
+            if ($("#birthdayftime").val() === "") {
+                messages.push("Födelsedatum är obligatoriskt");
+            }
 
-//    // Check that phone is a valid phone number
-//    if (phoneInput.value.trim() === '' || !/^\d{10}$/.test(phoneInput.value)) {
-//        alert('Telefonnummer är ogiltigt.');
-//        return;
-//    }
+            if ($("#email-contact").val() === "") {
+                messages.push("Email är obligatoriskt");
+            }
 
-//    // Check that education is not empty
-//    if (educationInput.value.trim() === '') {
-//        alert('Utbildning är ogiltigt.');
-//        return;
-//    }
+            if ($("#phoneNumber").val() === "") {
+                messages.push("Telefonnummer är obligatoriskt");
+            }
 
-//    // Check that nationality is not empty
-//    if (nationalityInput.value.trim() === '') {
-//        alert('Nationalitet är ogiltigt.');
-//        return;
-//    }
+            if ($("#education").val() === "") {
+                messages.push("Utbildning är obligatoriskt");
+            }
 
-//    // Check that country is not empty
-//    if (countryInput.value.trim() === '') {
-//        alert('Land är ogiltigt.');
-//        return;
-//    }
+            if ($("#nationality").val() === "") {
+                messages.push("Nationalitet är obligatoriskt");
+            }
 
-//    // Check that driversLicense is a valid file type
-//    if (!/\.(jpe?g|png)$/i.test(driversLicenseInput.value)) {
-//        alert('Körkortsbild är ogiltig.');
-//        return;
-//    }
+            if ($("#country").val() === "") {
+                messages.push("Land är obligatoriskt");
+            }
 
-//    // Check that competence is selected
-//    if (competenceInput.value === '') {
-//        alert('Välj en kompetens.');
-//        return;
-//    }
+                if ($("#driversLicense").val() === "") {
+                    messages.push("Körkortsbild är obligatoriskt");
+                }
 
-//    competenceEl.dispatchEvent(new Event('change'));
+                if ($("#kompetens").val() === "") {
+                    messages.push("Du måste välja en kompetens");
+                }
 
-//    // Check that at least one technology is selected
-//    if (selectedTechnologies.options.length === 0) {
-//        alert('Välj minst en teknologi.');
-//        return;
-//    }
+                if ($("#teknologier").val() === "") {
+                    messages.push("Du måste välja en teknologi");
+                }
 
-//    // Check that language is not empty
-//    if (language.value.trim() === '') {
-//        alert('Språk är ogiltigt.');
-//        return;
-//    }
+                if ($("#valda-teknologier").val() === "") {
+                    messages.push("Du måste välja en teknologi");
+                }
 
-//    // Check that selfDescription is not empty and contains at least 50 characters
-//    if (selfDescription.value.trim() === '' || selfDescription.value.trim().length < 50) {
-//        alert('Självbeskrivning måste innehålla minst 50 tecken.');
-//        return;
-//    }
+                if ($("#language").val() === "") {
+                    messages.push("Språk är obligatoriskt");
+                }
 
-//    // Check if the address field is empty
-//    if (address.value.trim() === '') {
-//        alert('Please enter your address.');
-//        return;
-//    }
+                if ($("#description").val() === "") {
+                    messages.push("En självbeskrivning är obligatoriskt");
+                }
 
-//    // Submit the form if all validation passes
-//    form.submit();
-//});
+                if ($("#address").val() === "") {
+                    messages.push("Address är obligatoriskt");
+                }
 
+                if (messages.length > 0) {
+                    event.preventDefault();
+                    alert(messages.join("\n"));
+                }
+            });
+        });

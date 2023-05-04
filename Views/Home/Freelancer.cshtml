@@ -11,69 +11,69 @@
     <img src="~/images/menu.png" class="menu-icon">
 </div>
 
-<div class="freeForm">
-    <form action = "/AddPerson" id="myForm" method="post">
+    <div class="freeForm">
+        <form action = "/AddPerson" id="myForm" method="post">
 
-        <label for="firstname"> Förnamn</label>
-        <input type="text" id="name" name="firstName" placeholder="Ditt förnamn...">
+            <label for="firstname"> Förnamn</label>
+            <input type="text" id="name" name="firstName" placeholder="Ditt förnamn...">
 
-        <label for="lastname"> Efternamn</label>
-        <input type="text" id="lastname" name="surName" placeholder="Ditt efternamn...">
+            <label for="lastname"> Efternamn</label>
+            <input type="text" id="lastname" name="surName" placeholder="Ditt efternamn...">
 
-        <label for="birthday"></label>
-        <input type="date" name="age" id="birthdayftime" placeholder="Födelsedatum...">
+            <label for="birthday"></label>
+            <input type="date" name="age" id="birthdayftime" placeholder="Födelsedatum...">
 
-        <label for="E-mail address">E-mail address</label>
-        <input type="email" name="email" id="email-contact" placeholder="Din emailaddress...">
+            <label for="E-mail address">E-mail address</label>
+            <input type="email" name="email" id="email-contact" placeholder="Din emailaddress...">
             
-        <label for="E-mail address">Telefonnummer</label>
-        <input type="number" name="phoneNumber" id="phoneNumber" placeholder="Ditt telefonnummer...">
+            <label for="E-mail address">Telefonnummer</label>
+            <input type="number" name="phoneNumber" id="phoneNumber" placeholder="Ditt telefonnummer...">
 
-        <label for="education">Utbildning</label>
-        <input type="text" name="education" id="education" placeholder="Din utbildning...">
+            <label for="education">Utbildning</label>
+            <input type="text" name="education" id="education" placeholder="Din utbildning...">
 
-        <label for="nationality">Nationalitet</label>
-        <input type="text" name="nationality" id="nationality" placeholder="Din nationalitet...">
+            <label for="nationality">Nationalitet</label>
+            <input type="text" name="nationality" id="nationality" placeholder="Din nationalitet...">
 
-        <label for="country">Land</label>
-        <input type="text" name="country" id="nationality" placeholder="Land...">
+            <label for="country">Land</label>
+            <input type="text" name="country" id="country" placeholder="Land...">
 
-        <label> for="driversLicense"Lägg in en bild på ditt Körkort</label>
-        <input type="file" name="driversLicense" accept="image/png, image/jpeg">
+            <label for="driversLicense">Lägg in en bild på ditt Körkort</label>
+            <input type="file" name="driversLicense" accept="image/png, image/jpeg">
 
-        <label for="kompetens">Välj kompetens:</label>
-        <select id="kompetens">
-            <option value="">Välj en kompetens</option>
-            <option value="graphicDesigner">Grafisk designer</option>
-            <option value="webDeveloper">Webbutvecklare</option>
-            <option value="backendutvecklare">Backendutvecklare</option>
-        </select>
-
-        <div id="teknologier-container">
-            <label for="teknologier">Välj teknologier:</label>
-            <select id="teknologier" disabled>
-                <option value="">Välj en kompetens först</option>
+            <label for="kompetens">Välj kompetens:</label>
+            <select id="kompetens">
+                <option value="">Välj en kompetens</option>
+                <option value="graphicDesigner">Grafisk designer</option>
+                <option value="webDeveloper">Webbutvecklare</option>
+                <option value="backendutvecklare">Backendutvecklare</option>
             </select>
-        </div>
 
-        <div id="valda-teknologier-container">
-            <label for="valda-teknologier">Valda teknologier:</label>
-            <select id="valda-teknologier" multiple disabled>
-                <option value="">Välj en kompetens först</option>
-            </select>
-        </div>
+            <div id="teknologier-container">
+                <label for="teknologier">Välj teknologier:</label>
+                <select id="teknologier" disabled>
+                    <option value="">Välj en kompetens först</option>
+                </select>
+            </div>
+
+            <div id="valda-teknologier-container">
+                <label for="valda-teknologier">Valda teknologier:</label>
+                <select id="valda-teknologier" multiple disabled>
+                    <option value="">Välj en kompetens först</option>
+                </select>
+            </div>
 
 
-        <label for="description">Språk</label>
-        <input type="text" name="language" id="language" placeholder="Språkkunskaper...">
+            <label for="description">Språk</label>
+            <input type="text" name="language" id="language" placeholder="Språkkunskaper...">
 
-        <label for="description">Beskrivning av dig själv</label>
-        <input type="text" name="selfDescription" id="description" placeholder="En självbeskskrivning...">
+            <label for="description">Beskrivning av dig själv</label>
+            <input type="text" name="selfDescription" id="description" placeholder="En självbeskskrivning...">
 
-        <label for="description">Address</label>
-        <input type="text" name="address" id="description" placeholder="Din address...">
+            <label for="description">Address</label>
+            <input type="text" name="address" id="address" placeholder="Din address...">
 
-        <input type="submit" value="submit" id="submitButton">
+            <input type="submit" value="submit" id="submitButton">
 
-    </form>
-</div>
+        </form>
+    </div>
