@@ -53,12 +53,8 @@ $('.search-input').on('keyup', function (event) {
             selfDescription: selfDescription
         },
         success: function (response) {
-            // Handle the response from the server
-            const bsonParser = new BSON();
-            const parsedResponse = bsonParser.deserialize(response);
-            console.log(parsedResponse);
-        },
-        dataType: "bson"
+            console.log(response);
+        }
     });
 });
 

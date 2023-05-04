@@ -5,6 +5,7 @@ using MongoDB.Driver.Core.Configuration;
 using MongoDB.Driver;
 using System.Diagnostics;
 using MongoDB.Bson;
+using MongoDB.Bson.Serialization;
 
 namespace Frilansare.Controllers
 {
@@ -54,6 +55,7 @@ namespace Frilansare.Controllers
             
             Backend backend = new Backend();
             Person person = new Person();
+            person.Id = new ObjectId();
             person.FirstName = firstName;
             person.SurName = surName;
             person.Age = age;
@@ -66,7 +68,7 @@ namespace Frilansare.Controllers
             person.Competences = competences;
             person.Language = language;
             person.SelfDescription = selfDescription;
-            person.Address = address;
+            person.Adress = address;
 
             await backend.CreateDatabaseAndSavePersonAsync(person);
             return Redirect("/");
@@ -81,10 +83,10 @@ namespace Frilansare.Controllers
 
             var client = new MongoClient(connectionString);
             var database = client.GetDatabase(databaseName);
-            var collection = database.GetCollection<BsonDocument>(collectionName);
+            var collection = database.GetCollection<Person>(collectionName);
 
-            var filterBuilder = Builders<BsonDocument>.Filter;
-            var filters = new List<FilterDefinition<BsonDocument>>();
+            var filterBuilder = Builders<Person>.Filter;
+            var filters = new List<FilterDefinition<Person>>(); 
 
             if (!string.IsNullOrWhiteSpace(firstName))
             {
@@ -95,7 +97,7 @@ namespace Frilansare.Controllers
             {
                 filters.Add(filterBuilder.Regex("SurName", new BsonRegularExpression(surName, "i")));
             }
-
+             
             if (!string.IsNullOrWhiteSpace(education))
             {
                 filters.Add(filterBuilder.Regex("Education", new BsonRegularExpression(education, "i")));
@@ -107,8 +109,8 @@ namespace Frilansare.Controllers
             }
             var filter = filters.Count > 0 ? filterBuilder.And(filters) : null;
             var results = filter != null ? collection.Find(filter).ToList() : collection.Find(_ => true).ToList();
-
-            return Ok(results.ToJson());
+       
+            return Ok(results);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
